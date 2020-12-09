@@ -23,7 +23,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/matchingDetailBackground"
+                android:src="@drawable/matching_detail_background"
                 android:scaleType="centerCrop"/>
         </LinearLayout>
     </LinearLayout>
