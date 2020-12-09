@@ -47,10 +47,10 @@ public class HealthFragment extends Fragment {
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         bestHealthCardDataset = new ArrayList<>();
-        bestHealthCardDataset.add( new HealthCardDataset( "어깨 스트레칭" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/266/266.mp4") );
-        bestHealthCardDataset.add( new HealthCardDataset( "발바닥 치기" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/350/350.mp4") );
-        bestHealthCardDataset.add( new HealthCardDataset( "몸통 비틀기" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4") );
-        bestHealthCardDataset.add( new HealthCardDataset( "종아리 스트레칭" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4") );
+        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "어깨 스트레칭" ) );
+        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "발바닥 치기" ) );
+        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "몸통 비틀기" ) );
+        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "종아리 스트레칭" ) );
 
         bestRecyclerView = viewGroup.findViewById(R.id.bestRecyclerView);
         bestHealthLayoutManager = new LinearLayoutManager(context);
@@ -64,9 +64,8 @@ public class HealthFragment extends Fragment {
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         trendHealthCardDataset = new ArrayList<>();
-        trendHealthCardDataset.add( new HealthCardDataset( "종아리 스트레칭" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4") );
-        trendHealthCardDataset.add( new HealthCardDataset( "몸통 비틀기" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4") );
-
+        trendHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "몸통 비틀기" ) );
+        trendHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "종아리 스트레칭" ) );
         trendRecyclerView = viewGroup.findViewById(R.id.trendRecyclerView);
 
         trendHealthLayoutManager = new LinearLayoutManager(context);

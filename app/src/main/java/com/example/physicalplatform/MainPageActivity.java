@@ -12,12 +12,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.physicalplatform.chatting.ChattingFragment;
+import com.example.physicalplatform.data.HealthCardDataset;
+import com.example.physicalplatform.data.HealthVideoDataset;
 import com.example.physicalplatform.health.HealthFragment;
 import com.example.physicalplatform.matching.MatchingFragment;
 import com.example.physicalplatform.setting.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MainPageActivity extends AppCompatActivity {
+    public static HashMap<String, HealthCardDataset> HEALTH_DB;
+    public static HashMap<String, HealthVideoDataset> HEALTH_VIDEO_DB;
+
+
     String userId;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
@@ -40,6 +49,8 @@ public class MainPageActivity extends AppCompatActivity {
             Toast.makeText(this.getApplicationContext(), "홈페이지서 시작", Toast.LENGTH_SHORT).show();
         }
 
+
+        initializeDataBase(); // static 디비 초기화
         initLayout();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -67,6 +78,31 @@ public class MainPageActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void initializeDataBase(){
+        // DB 초기화
+        initializHealthDB();
+        initializHealtVideohDB();
+    }
+
+    private void initializHealthDB() {
+        HEALTH_DB = new HashMap<String, HealthCardDataset>();
+        String[] mvNameList = { "어깨운동 부수기", "어깨운동 부수기2", "오늘은 어깨운동", "어깨근육 풀기" };
+        HEALTH_DB.put("어깨 스트레칭", new HealthCardDataset("어깨 스트레칭", "어깨 스트레칭은 ~", R.drawable.png_exercise_example, mvNameList));
+        HEALTH_DB.put("발바닥 치기", new HealthCardDataset("발바닥 치기", "발바닥 치기는 ~ ~", R.drawable.png_exercise_example, mvNameList));
+        HEALTH_DB.put("몸통 비틀기", new HealthCardDataset("몸통 비틀기", "몸통 비틀기~~~ ~", R.drawable.png_exercise_example, mvNameList));
+        HEALTH_DB.put("종아리 스트레칭", new HealthCardDataset("종아리 스트레칭", "종아리 스트레칭은 ~", R.drawable.png_exercise_example, mvNameList));
+    }
+
+    private void initializHealtVideohDB(){
+        HEALTH_VIDEO_DB = new HashMap<String, HealthVideoDataset>();
+
+        HEALTH_VIDEO_DB.put(  "어깨운동 부수기", new HealthVideoDataset( "어깨운동 부수기", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/309/309.mp4","23분 17초") );
+        HEALTH_VIDEO_DB.put(  "어깨운동 부수기2", new HealthVideoDataset( "어깨운동 부수기2", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/282/282.mp4","12분 55초") );
+        HEALTH_VIDEO_DB.put(  "오늘은 어깨운동", new HealthVideoDataset( "오늘은 어깨운동", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/257/257.mp4","12분 14초") );
+        HEALTH_VIDEO_DB.put(  "어깨근육 풀기", new HealthVideoDataset( "어깨근육 풀기", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/256/256.mp4","10분 10초") );
+
     }
 
 

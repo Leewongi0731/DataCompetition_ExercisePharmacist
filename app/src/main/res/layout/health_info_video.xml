@@ -28,38 +28,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="200dp"
             android:orientation="vertical"
             android:background="@drawable/border_only_top"
             >
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
+                android:text="온라인강좌"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="온라인강좌"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/healthInfoVideoRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:scrollbars="vertical"
+                    android:layout_marginBottom="40dp"
+                    android:scrollbars="horizontal"
                     />
 
                 <Button
-                    android:id="@+id/healthInfoVideoBtn"
+                    android:id="@+id/goMactchingPageBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
@@ -71,6 +69,7 @@
                     android:backgroundTint="@color/custom_red"
                     />
             </RelativeLayout>
+
         </LinearLayout>
     </RelativeLayout>
 

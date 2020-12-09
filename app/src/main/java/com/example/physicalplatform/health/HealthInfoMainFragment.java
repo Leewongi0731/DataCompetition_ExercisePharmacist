@@ -32,31 +32,28 @@ public class HealthInfoMainFragment extends Fragment {
 
     private AppCompatActivity activity;
     private FragmentTransaction transaction;
+
+    private String exerciseName = "";
+    private FragmentManager fragmentManager;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_info_main, container, false);
         context = container.getContext();
 
-        String exerciseName = "";
+
         Bundle bundle=getArguments();
         if(bundle !=null) {
             exerciseName = bundle.getString("exerciseName");
         }
-
-        Toast.makeText(context, exerciseName, Toast.LENGTH_SHORT).show();
-
 
         // set backBtn
         healthInfoBackBtn = (Button) viewGroup.findViewById(R.id.healthInfoBackBtn);
         healthInfoBackBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                activity = (AppCompatActivity)v.getContext();
-                transaction = activity.getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_container, new HealthFragment());
-                transaction.addToBackStack(null);
-                transaction.commit();
+                fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.popBackStackImmediate();
             }
         });
 
@@ -67,17 +64,24 @@ public class HealthInfoMainFragment extends Fragment {
 
         // set health contents
         healthInfoItemContents = (TextView) viewGroup.findViewById(R.id.healthInfoItemContents);
-        healthInfoItemContents.setText( "나중에 데이터베이스 연동해서 해당 운동에 맞는 걸로 채워야 합니다 아 아 앙 ㅏㅇ ㅏ아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ" );
+        healthInfoItemContents.setText(  MainPageActivity.HEALTH_DB.get( exerciseName ).getInfo() );
 
 
         // set video btn
         healthInfoFrontBtn = (Button) viewGroup.findViewById(R.id.healthInfoFrontBtn);
+        healthInfoFrontBtn.setText( exerciseName + "에 대한 영상보기" );
         healthInfoFrontBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("exerciseName", exerciseName); // key value를 Bundle에 담아서 파라미터로 전송
+
+                HealthInfoVideoFragment healthInfoVideoFragment = new HealthInfoVideoFragment();
+                healthInfoVideoFragment.setArguments(args);
+
                 activity = (AppCompatActivity)v.getContext();
                 transaction = activity.getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_container, new HealthInfoVideoFragment());
+                transaction.replace(R.id.frame_container, healthInfoVideoFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

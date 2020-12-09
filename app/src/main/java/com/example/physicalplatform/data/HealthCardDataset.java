@@ -2,24 +2,30 @@ package com.example.physicalplatform.data;
 
 public class HealthCardDataset {
     private String name;
+    private String info;
     private Object imagePath;
-    private String videoURL;
+    private String[] videoNameList;
 
-    public HealthCardDataset(String name, Object imagePath, String videoURL) {
+    public HealthCardDataset(String name, String info, Object imagePath, String[] videoNameList) {
         this.name = name;
+        this.info = info;
         this.imagePath = imagePath;
-        this.videoURL = videoURL;
+        this.videoNameList = videoNameList;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getInfo() {
+        return info;
+    }
+
     public Object getImagePath() {
         return imagePath;
     }
 
-    public String getVideoURL() {
-        return videoURL;
+    public String[] getVideoNameList() {
+        return videoNameList;
     }
 }
