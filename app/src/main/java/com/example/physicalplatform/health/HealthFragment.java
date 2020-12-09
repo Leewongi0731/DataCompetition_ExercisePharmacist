@@ -47,10 +47,10 @@ public class HealthFragment extends Fragment {
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         bestHealthCardDataset = new ArrayList<>();
-        bestHealthCardDataset.add( new HealthCardDataset( "푸쉬업" ,R.drawable.png_exercise_example) );
-        bestHealthCardDataset.add( new HealthCardDataset( "스쿼트" ,R.drawable.png_exercise_example) );
-        bestHealthCardDataset.add( new HealthCardDataset( "러닝" ,R.drawable.png_exercise_example) );
-        bestHealthCardDataset.add( new HealthCardDataset( "바벨컬" ,R.drawable.png_exercise_example) );
+        bestHealthCardDataset.add( new HealthCardDataset( "어깨 스트레칭" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/266/266.mp4") );
+        bestHealthCardDataset.add( new HealthCardDataset( "발바닥 치기" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/350/350.mp4") );
+        bestHealthCardDataset.add( new HealthCardDataset( "몸통 비틀기" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4") );
+        bestHealthCardDataset.add( new HealthCardDataset( "종아리 스트레칭" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4") );
 
         bestRecyclerView = viewGroup.findViewById(R.id.bestRecyclerView);
         bestHealthLayoutManager = new LinearLayoutManager(context);
@@ -64,10 +64,8 @@ public class HealthFragment extends Fragment {
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         trendHealthCardDataset = new ArrayList<>();
-        trendHealthCardDataset.add( new HealthCardDataset( "바벨컬" ,R.drawable.png_exercise_example) );
-        trendHealthCardDataset.add( new HealthCardDataset( "푸쉬업" ,R.drawable.png_exercise_example) );
-        trendHealthCardDataset.add( new HealthCardDataset( "바벨컬" ,R.drawable.png_exercise_example) );
-        trendHealthCardDataset.add( new HealthCardDataset( "푸쉬업" ,R.drawable.png_exercise_example) );
+        trendHealthCardDataset.add( new HealthCardDataset( "종아리 스트레칭" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4") );
+        trendHealthCardDataset.add( new HealthCardDataset( "몸통 비틀기" ,R.drawable.png_exercise_example, "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4") );
 
         trendRecyclerView = viewGroup.findViewById(R.id.trendRecyclerView);
 
@@ -76,7 +74,6 @@ public class HealthFragment extends Fragment {
         trendRecyclerView.setLayoutManager(layoutManager);  // 세로로 나오게 설정
         trendHealthAdapter = new HealthFragmentRecyclerViewAdapter(context, trendHealthCardDataset);
         trendRecyclerView.setAdapter(trendHealthAdapter);
-
     }
 
 }

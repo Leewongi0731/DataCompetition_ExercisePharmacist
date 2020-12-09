@@ -1,6 +1,5 @@
 package com.example.physicalplatform.health;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,16 +10,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.physicalplatform.MainActivity;
-import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 import com.example.physicalplatform.data.HealthCardDataset;
-import com.example.physicalplatform.matching.MatchingDetailFragment;
-import com.example.physicalplatform.matching.MatchingFragmentRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
@@ -57,12 +51,12 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
                 Bundle args = new Bundle();
                 args.putString("exerciseName", dataSet.getName()); // key value를 Bundle에 담아서 파라미터로 전송
 
-                HealthItemInfoFragment healthItemInfoFragment = new HealthItemInfoFragment();
-                healthItemInfoFragment.setArguments(args);
+                HealthInfoMainFragment healthInfoMainFragment = new HealthInfoMainFragment();
+                healthInfoMainFragment.setArguments(args);
 
                 activity = (AppCompatActivity)v.getContext();
                 transaction = activity.getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_container, healthItemInfoFragment);
+                transaction.replace(R.id.frame_container, healthInfoMainFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

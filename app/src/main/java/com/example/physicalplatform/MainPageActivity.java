@@ -39,7 +39,6 @@ public class MainPageActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this.getApplicationContext(), "홈페이지서 시작", Toast.LENGTH_SHORT).show();
         }
-        
 
         initLayout();
 
