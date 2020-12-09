@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhysicalPlatform"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
         </activity>
 
         <activity android:name=".login.FirstLoginActivity"/>
-        <activity android:name=".MainPageActivity"/>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

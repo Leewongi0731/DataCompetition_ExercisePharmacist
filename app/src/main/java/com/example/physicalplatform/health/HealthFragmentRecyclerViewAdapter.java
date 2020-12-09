@@ -2,6 +2,7 @@ package com.example.physicalplatform.health;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,12 @@ import java.util.ArrayList;
 
 public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HealthFragmentRecyclerViewAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<com.example.physicalplatform.data.HealthCardDataset> HealthCardDataset;
+    private ArrayList<com.example.physicalplatform.data.HealthCardDataset> healthCardDataset;
     private MainPageActivity mainPageActivity;
     private Activity activity;
-    public HealthFragmentRecyclerViewAdapter(Context context, ArrayList<HealthCardDataset> HealthCardDataset, MainPageActivity mainPageActivity) {
+    public HealthFragmentRecyclerViewAdapter(Context context, ArrayList<HealthCardDataset> healthCardDataset, MainPageActivity mainPageActivity) {
         this.context = context;
-        this.HealthCardDataset = HealthCardDataset;
+        this.healthCardDataset = healthCardDataset;
         this.mainPageActivity = mainPageActivity;
     }
 
@@ -38,26 +39,32 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        HealthCardDataset dataSet = HealthCardDataset.get(position);
+        HealthCardDataset dataSet = healthCardDataset.get(position);
 
 
         holder.healtItemTextView.setText(dataSet.getName());
         holder.healtItemImageView.setImageResource( (int)dataSet.getImagePath() );
-
+        /*
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 사진 눌렀을때 넘어갈 frame 정의
-                //
-          //      mainPageActivity.replaceFragment( new HealthMovieFragment() );
+                Bundle args = new Bundle();
+                args.putString("exerciseName", dataSet.getName()); // key value를 Bundle에 담아서 파라미터로 전송
+
+                HealthItemInfoFragment healthMovieFragment = new HealthItemInfoFragment();
+                healthMovieFragment.setArguments(args);
+                mainPageActivity.replaceFragment( healthMovieFragment );
             }
         };
         holder.healtItemImageView.setOnClickListener(clickListener);
+
+        */
     }
 
     @Override
     public int getItemCount() {
-        return HealthCardDataset.size();
+        return healthCardDataset.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
