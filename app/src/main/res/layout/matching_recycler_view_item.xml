@@ -39,8 +39,8 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:weightSum="10">
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
 
                 <TextView
                     android:id="@+id/textViewMatchingListTitle"
@@ -48,32 +48,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textStyle="bold"
-                    android:lines="4"
+                    android:textColor="@color/black"
                     android:text="헬스트레이닝"/>
 
-                <TextView
-                    android:id="@+id/textViewMatchingListLocation"
-                    android:layout_weight="3"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="송파"/>
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
 
-                <TextView
-                    android:id="@+id/textViewMatchingListPeriod"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="주1회 (수)"/>
+                    <TextView
+                        android:id="@+id/textViewMatchingListLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="송파"/>
 
-                <TextView
-                    android:id="@+id/textViewMatchingListClassTime"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="07:00"/>
+                    <TextView
+                        android:id="@+id/textViewMatchingListPeriod"
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="주1회 (수)"/>
+
+                    <TextView
+                        android:id="@+id/textViewMatchingListClassTime"
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="07:00"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 

@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.physicalplatform.R;
@@ -18,6 +21,9 @@ import java.util.ArrayList;
 public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<MatchingFragmentRecyclerViewAdapter.ViewHolder> {
     private Context context;
     private ArrayList<MatchingListDataset> matchingListDatasets;
+
+    private AppCompatActivity activity;
+    private FragmentTransaction transaction;
 
     public MatchingFragmentRecyclerViewAdapter(Context context, ArrayList<MatchingListDataset> matchingListDatasets) {
         this.context = context;
@@ -37,6 +43,24 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
             textViewMatchingListLocation= view.findViewById(R.id.textViewMatchingListLocation);
             textViewMatchingListPeriod= view.findViewById(R.id.textViewMatchingListPeriod);
             textViewMatchingListClassTime= view.findViewById(R.id.textViewMatchingListClassTime);
+
+            view.setOnClickListener(new View.OnClickListener() {            // recycler view item 클릭
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION) {
+//                        transaction.replace(R.id.frameLayout, new MatchingDetailFragment());
+//                        transaction.addToBackStack("matchingList-" + position);
+//                        transaction.commit();
+
+                        activity = (AppCompatActivity)view.getContext();
+                        transaction = activity.getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frame_container, new MatchingDetailFragment());
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                }
+            });
         }
     }
 
