@@ -10,23 +10,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.physicalplatform.MainActivity;
 import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 import com.example.physicalplatform.data.HealthCardDataset;
+import com.example.physicalplatform.matching.MatchingDetailFragment;
+import com.example.physicalplatform.matching.MatchingFragmentRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HealthFragmentRecyclerViewAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<com.example.physicalplatform.data.HealthCardDataset> healthCardDataset;
-    private MainPageActivity mainPageActivity;
-    private Activity activity;
-    public HealthFragmentRecyclerViewAdapter(Context context, ArrayList<HealthCardDataset> healthCardDataset, MainPageActivity mainPageActivity) {
+    private ArrayList<HealthCardDataset> healthCardDataset;
+
+    private AppCompatActivity activity;
+    private FragmentTransaction transaction;
+
+    public HealthFragmentRecyclerViewAdapter(Context context, ArrayList<HealthCardDataset> healthCardDataset) {
         this.context = context;
         this.healthCardDataset = healthCardDataset;
-        this.mainPageActivity = mainPageActivity;
     }
 
     @NonNull
@@ -41,25 +48,27 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HealthCardDataset dataSet = healthCardDataset.get(position);
 
-
         holder.healtItemTextView.setText(dataSet.getName());
         holder.healtItemImageView.setImageResource( (int)dataSet.getImagePath() );
-        /*
+
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 사진 눌렀을때 넘어갈 frame 정의
                 Bundle args = new Bundle();
                 args.putString("exerciseName", dataSet.getName()); // key value를 Bundle에 담아서 파라미터로 전송
 
-                HealthItemInfoFragment healthMovieFragment = new HealthItemInfoFragment();
-                healthMovieFragment.setArguments(args);
-                mainPageActivity.replaceFragment( healthMovieFragment );
+                HealthItemInfoFragment healthItemInfoFragment = new HealthItemInfoFragment();
+                healthItemInfoFragment.setArguments(args);
+
+                activity = (AppCompatActivity)v.getContext();
+                transaction = activity.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, healthItemInfoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         };
         holder.healtItemImageView.setOnClickListener(clickListener);
 
-        */
     }
 
     @Override

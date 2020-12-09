@@ -56,7 +56,7 @@ public class HealthFragment extends Fragment {
         bestHealthLayoutManager = new LinearLayoutManager(context);
         bestRecyclerView.setLayoutManager(bestHealthLayoutManager);
         bestRecyclerView.setLayoutManager(layoutManager);  // 세로로 나오게 설정
-        bestHealthAdapter = new HealthFragmentRecyclerViewAdapter(context, bestHealthCardDataset, (MainPageActivity) getActivity());
+        bestHealthAdapter = new HealthFragmentRecyclerViewAdapter(context, bestHealthCardDataset);
         bestRecyclerView.setAdapter(bestHealthAdapter);
 
 
@@ -74,7 +74,7 @@ public class HealthFragment extends Fragment {
         trendHealthLayoutManager = new LinearLayoutManager(context);
         trendRecyclerView.setLayoutManager(trendHealthLayoutManager);
         trendRecyclerView.setLayoutManager(layoutManager);  // 세로로 나오게 설정
-        trendHealthAdapter = new HealthFragmentRecyclerViewAdapter(context, trendHealthCardDataset, (MainPageActivity) getActivity());
+        trendHealthAdapter = new HealthFragmentRecyclerViewAdapter(context, trendHealthCardDataset);
         trendRecyclerView.setAdapter(trendHealthAdapter);
 
     }

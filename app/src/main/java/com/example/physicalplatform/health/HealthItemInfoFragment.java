@@ -19,7 +19,7 @@ public class HealthItemInfoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.health_page, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.health_item_info_main, container, false);
         context = container.getContext();
 
         String exerciseName = "";
@@ -29,8 +29,6 @@ public class HealthItemInfoFragment extends Fragment {
         }
 
         Toast.makeText(context, exerciseName, Toast.LENGTH_SHORT).show();
-
-
 
         return viewGroup;
     }
