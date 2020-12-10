@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +34,9 @@ public class HealthFragment extends Fragment {
     private HealthFragmentRecyclerViewAdapter bestHealthAdapter;
     private HealthFragmentRecyclerViewAdapter trendHealthAdapter;
 
+    private LinearLayout healthTestLinearLayout;
+    private AppCompatActivity activity;
+    private FragmentTransaction transaction;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,6 +44,19 @@ public class HealthFragment extends Fragment {
         context = container.getContext();
 
         initLayout();
+
+        // click test btn
+        healthTestLinearLayout = viewGroup.findViewById(R.id.healthTestLinearLayout);
+        healthTestLinearLayout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                activity = (AppCompatActivity)v.getContext();
+                transaction = activity.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, new HealthTestFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
 
         return viewGroup;
     }
