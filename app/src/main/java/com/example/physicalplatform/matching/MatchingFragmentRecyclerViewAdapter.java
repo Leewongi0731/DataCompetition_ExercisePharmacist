@@ -86,7 +86,7 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
                         activity = (AppCompatActivity)view.getContext();
                         transaction = activity.getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.frame_container, new MatchingDetailFragment(matchingListDatasetsFiltered.get(position)));
-                        transaction.addToBackStack(null);
+                        transaction.addToBackStack("matchingDetail");
                         transaction.commit();
                     }
                 }
