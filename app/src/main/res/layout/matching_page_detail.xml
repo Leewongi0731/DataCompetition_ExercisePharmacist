@@ -30,49 +30,51 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/up_round_linear_layout"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="16dp"
+            android:paddingTop="16dp"
             android:paddingRight="16dp"
-            android:paddingBottom="16dp"
-            android:paddingTop="16dp">
+            android:paddingBottom="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center|start">
+                android:gravity="center|start"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textViewTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="헬스 트레이닝"
-                    android:textStyle="bold"
-                    android:textSize="22dp"/>
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewTrainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="이강사"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:text="이강사" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center|start">
+                android:gravity="center|start"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textViewSummary"
@@ -80,15 +82,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="간단히 할 수 있는 헬스트레이닝"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="18dp"
-                android:gravity="center|start">
+                android:gravity="center|start"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -98,191 +100,265 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_time"/>
+                        android:src="@drawable/ic_time" />
 
                     <TextView
                         android:id="@+id/textViewPeriod"
-                        android:layout_marginLeft="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="8dp"
                         android:text="매주 (수) 7:00 ~ 8:00"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
                     android:gravity="center|start"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_main_icon"/>
+                        android:src="@drawable/ic_main_icon" />
 
                     <TextView
                         android:id="@+id/textViewRating"
-                        android:layout_marginLeft="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="8dp"
                         android:text="4.6"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="22dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
                 android:orientation="horizontal"
                 android:weightSum="4">
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textViewIntroduction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:text="수업소개"
                         android:textAlignment="center"
-                        android:layout_marginBottom="4dp"
-                        android:textColor="@color/custom_red"/>
+                        android:textColor="@color/custom_red" />
 
                     <View
                         android:id="@+id/viewIntroduction"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
                         android:background="@color/custom_red" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textViewCurriculum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:text="커리큘럼"
-                        android:textColor="@color/black"
                         android:textAlignment="center"
-                        android:layout_marginBottom="4dp"/>
+                        android:textColor="@color/black" />
 
                     <View
                         android:id="@+id/viewCurriculum"
-                        android:visibility="invisible"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:background="@color/custom_red" />
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/custom_red"
+                        android:visibility="invisible" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textViewClassPlan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:text="수업일정"
-                        android:textColor="@color/black"
                         android:textAlignment="center"
-                        android:layout_marginBottom="4dp"/>
+                        android:textColor="@color/black" />
 
                     <View
                         android:id="@+id/viewClassPlan"
-                        android:visibility="invisible"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:background="@color/custom_red" />
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/custom_red"
+                        android:visibility="invisible" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textViewClassReview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:text="수업후기"
-                        android:textColor="@color/black"
                         android:textAlignment="center"
-                        android:layout_marginBottom="4dp"/>
+                        android:textColor="@color/black" />
 
                     <View
                         android:id="@+id/viewClassReview"
-                        android:visibility="invisible"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:background="@color/custom_red" />
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/custom_red"
+                        android:visibility="invisible" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="18dp"
+                android:id="@+id/linearLayoutIntroduction"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical"
+                android:visibility="visible">
 
-                <TextView
-                    android:id="@+id/textViewContents"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minLines="2"
-                    android:text="헬스를 배우고 싶은신 분 환영">
+                    android:layout_height="match_parent">
 
-                </TextView>
+                    <TextView
+                        android:id="@+id/textViewIntroductionContents"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:minLines="2"
+                        android:text="헬스를 배우고 싶은신 분 환영"
+                        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:id="@+id/buttonIntroductionQuestion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_small_red"
+                            android:padding="8dp"
+                            android:text="강좌에 대해 질문하기"
+                            android:textAlignment="center"
+                            android:textColor="@color/custom_red" />
+
+                        <TextView
+                            android:id="@+id/buttonIntroductionRegister"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:background="@drawable/border_small_red_fill"
+                            android:padding="8dp"
+                            android:text="수강 신청하기"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayoutCurriculum"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp"
                 android:orientation="vertical"
-                android:layout_marginTop="40dp">
+                android:visibility="gone">
 
-                <Button
-                    android:id="@+id/buttonQuestion"
+                <TextView
+                    android:id="@+id/textViewCurriculumContents"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_btn_red"
-                    android:text="강좌에 대해 질문하기"/>
+                    android:text="1주차\n2주차\n3주차\n4주차" />
 
-                <Button
-                    android:id="@+id/buttonRegister"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutClassPlan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textViewClassPlanSummary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:background="@drawable/fill_btn_red"
-                    android:text="수강 신청하기" />
+                    android:text="매주 수요일 7시에서 8시 사이에 진행합니다." />
+
+                <CalendarView
+                    android:id="@+id/calendarViewClassPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutClassReview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewClassReviewList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </LinearLayout>
 
