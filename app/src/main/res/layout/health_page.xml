@@ -5,14 +5,48 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="체육 플랫폼"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@drawable/ic_home_background_small" />
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="체육 플랫폼"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/ic_home_background_small" />
+
+        <LinearLayout
+            android:id="@+id/healthTestLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight	="true"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_health_test"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="체력정보\n입력하기"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="체력정보입력"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:gravity="center"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="30초 의자 앉았다 일어서기(회)"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/healthTestEditTest1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:hint="ex) 50"
+        android:gravity="start"
+        android:background="@drawable/black_text_box"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="2분제자리걷기(m)"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/healthTestEditTest2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:hint="ex) 30"
+        android:gravity="start"
+        android:background="@drawable/black_text_box"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="앉아윗몸앞으로굽히기(cm)"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/healthTestEditTest3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:hint="ex) 10"
+        android:gravity="start"
+        android:background="@drawable/black_text_box"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/healthTestResultBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:padding="15dp"
+            android:text="입력 완료"
+            android:backgroundTint="@color/custom_red"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>
