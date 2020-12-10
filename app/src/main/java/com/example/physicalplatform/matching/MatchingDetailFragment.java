@@ -10,6 +10,7 @@ import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +20,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.physicalplatform.R;
+import com.example.physicalplatform.chatting.ChattingFragment;
+import com.example.physicalplatform.data.MatchingDetailDataset;
 import com.example.physicalplatform.data.MatchingListDataset;
+
+import java.util.ArrayList;
 
 public class MatchingDetailFragment extends Fragment implements View.OnClickListener {
     private ViewGroup viewGroup;
@@ -54,6 +59,8 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
     private TextView textViewClassPlanSummary;
     private CalendarView calendarViewClassPlan;
 
+    private MatchingDetailDataset matchingDetailDatasets;
+
     private LinearLayout linearLayoutClassReview;
     private RecyclerView recyclerViewClassReviewList;
 
@@ -74,10 +81,14 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
 
         initLayout();
 
-        textViewTitle.setText(matchingListDataset.getListTitle());
-        //textViewTrainer.setText(());
-        //textViewSummary.setText(());
-        //textViewPeriod.setText(());
+        textViewTitle.setText(matchingDetailDatasets.getListTitle());
+        textViewTrainer.setText(matchingDetailDatasets.getTrainer());
+        textViewSummary.setText(matchingDetailDatasets.getSummary());
+        textViewPeriod.setText(matchingDetailDatasets.getPeriod());
+        textViewRating.setText(matchingDetailDatasets.getRating().toString());
+        textViewIntroductionContents.setText(matchingDetailDatasets.getIntroductionContents());
+        textViewCurriculumContents.setText(matchingDetailDatasets.getCurriculumContents());
+        textViewClassPlanSummary.setText(matchingDetailDatasets.getClassPlanSummary());
 
         imageViewBackBtn.setOnClickListener(this);
 
@@ -93,6 +104,8 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
     }
 
     private void initLayout() {
+        initDataset();
+
         imageViewBackBtn = viewGroup.findViewById(R.id.imageViewBackBtn);
 
         textViewTitle = viewGroup.findViewById(R.id.textViewTitle);
@@ -130,6 +143,16 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
         transaction = fragmentManager.beginTransaction();
     }
 
+    private void initDataset() {
+        String listTitle = matchingListDataset.getListTitle();
+        String period = matchingListDataset.getPeriod() + " " + matchingListDataset.getClassTime();
+        String introductionContents = "헬스를 전문적으로 배우는 것이 아닌 근력을 탄탄하고 키우고 싶은 노인분들을 대상으로 운영하고자 합니다.";
+        String curriculumContents = "1주차 - OT\n2주차 - 헬스트레이닝1\n3주차 - 헬스트레이닝2\n4주차 - 헬스트레이닝3";
+        String classPlanSummary = "매주 수요일 7시에서 8시 사이에 진행합니다.";
+
+        matchingDetailDatasets = new MatchingDetailDataset(listTitle,"이깅사","간단히 할 수 있는 헬스트레이닝",period,4.6,introductionContents,curriculumContents,classPlanSummary);
+    }
+
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
@@ -149,10 +172,15 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
                 setTextSelected(R.color.black, R.color.black, R.color.black, R.color.custom_red, View.GONE, View.GONE, View.GONE, View.VISIBLE);
                 break;
             case R.id.buttonIntroductionQuestion:
-
+                fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                transaction.replace(R.id.frame_container, new ChattingFragment());
+                transaction.addToBackStack("chatting");
+                transaction.commit();
                 break;
             case R.id.buttonIntroductionRegister:
-
+                // matchingListDataset.setRegistered(true);
+                Toast.makeText(context, matchingListDataset.getListTitle() + " 강좌가 수강신청 되었습니다.", Toast.LENGTH_SHORT).show();
+                fragmentManager.popBackStackImmediate();
                 break;
         }
     }

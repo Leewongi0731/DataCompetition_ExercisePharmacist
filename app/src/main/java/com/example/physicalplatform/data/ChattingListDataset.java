@@ -4,10 +4,10 @@ public class ChattingListDataset {
     private String profileSrc;
     private String opponentName;
     private String recentTalk;
-    private String beforeTime;
+    private Integer beforeTime;
     private Integer numOfChat;
 
-    public ChattingListDataset(String opponentName, String recentTalk, String beforeTime, Integer numOfChat) {
+    public ChattingListDataset(String opponentName, String recentTalk, Integer beforeTime, Integer numOfChat) {
         //this.profileSrc = profileSrc;
         this.opponentName = opponentName;
         this.recentTalk = recentTalk;
@@ -27,7 +27,7 @@ public class ChattingListDataset {
         return recentTalk;
     }
 
-    public String getBeforeTime() {
+    public Integer getBeforeTime() {
         return beforeTime;
     }
 

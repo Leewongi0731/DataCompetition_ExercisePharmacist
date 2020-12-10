@@ -21,6 +21,8 @@ import com.example.physicalplatform.data.MatchingListDataset;
 import com.example.physicalplatform.matching.MatchingFragmentRecyclerViewAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ChattingFragment extends Fragment {
     private ViewGroup viewGroup;
@@ -53,20 +55,29 @@ public class ChattingFragment extends Fragment {
 
         chattingAdapter = new ChattingFragmentRecyclerViewAdapter(context, chattingListDatasetsFiltered);
         chattingRecyclerView.setAdapter(chattingAdapter);
-
     }
 
     private void initDatasets() {
         chattingListDatasets = new ArrayList<>();
         chattingListDatasetsFiltered = new ArrayList<>();
 
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝1","안녕하세요.\n헬스트레이닝1입니다.","10분전",1));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝2","안녕하세요.\n헬스트레이닝2입니다.","50분전",2));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.","20분전",0));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.","30분전",0));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.","20분전",0));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.","15분전",0));
+        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝1","안녕하세요.\n헬스트레이닝1입니다.",1,1));
+        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝2","안녕하세요.\n헬스트레이닝2입니다.",5,2));
+        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.",20,0));
+        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝4","안녕하세요.\n헬스트레이닝4입니다.",76,0));
+        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝5","안녕하세요.\n헬스트레이닝5입니다.",60,0));
+        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝6","안녕하세요.\n헬스트레이닝6입니다.",15,0));
+
+        // 시간 순으로 정렬
+        Collections.sort(chattingListDatasets, new BeforeTimeAscending());
 
         chattingListDatasetsFiltered.addAll(chattingListDatasets);
+    }
+}
+
+class BeforeTimeAscending implements Comparator<ChattingListDataset> {
+    @Override
+    public int compare(ChattingListDataset o1, ChattingListDataset o2) {
+        return o1.getBeforeTime().compareTo(o2.getBeforeTime());
     }
 }

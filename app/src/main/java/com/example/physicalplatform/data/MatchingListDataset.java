@@ -1,10 +1,5 @@
 package com.example.physicalplatform.data;
 
-//private String email;                   // 유저 이메일
-//private Integer numOfRegistered;        // 신청한 강의
-//private Integer numOfAlmost;            // 마감 임박
-//private Integer numOfStar;              // 즐겨찾기
-
 public class MatchingListDataset {
     private boolean isRegistered;           // 신청한 강의 여부
     private boolean isAlmost;               // 마감임박 여부
@@ -50,5 +45,9 @@ public class MatchingListDataset {
 
     public String getClassTime() {
         return classTime;
+    }
+
+    public void setRegistered(boolean registered) {
+        isRegistered = registered;
     }
 }

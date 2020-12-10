@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +21,6 @@ import com.example.physicalplatform.R;
 import com.example.physicalplatform.data.MatchingListDataset;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MatchingFragment extends Fragment implements View.OnClickListener, TextWatcher {
     private ViewGroup viewGroup;
@@ -32,6 +30,10 @@ public class MatchingFragment extends Fragment implements View.OnClickListener, 
     private LinearLayout linearLayoutRegistered;
     private LinearLayout linearLayoutAlmost;
     private LinearLayout linearLayoutStar;
+
+    private Integer numOfRegistered;
+    private Integer numOfAlmost;
+    private Integer numOfStar;
 
     private TextView textViewNumOfRegistered;
     private TextView textViewNumOfAlmost;
@@ -52,6 +54,10 @@ public class MatchingFragment extends Fragment implements View.OnClickListener, 
         context = container.getContext();
 
         initLayout();
+
+        textViewNumOfRegistered.setText(numOfRegistered.toString());
+        textViewNumOfAlmost.setText(numOfAlmost.toString());
+        textViewNumOfStar.setText(numOfStar.toString());
 
         linearLayoutRegistered.setOnClickListener(this);
         linearLayoutAlmost.setOnClickListener(this);
@@ -96,7 +102,21 @@ public class MatchingFragment extends Fragment implements View.OnClickListener, 
         matchingListDatasets.add(new MatchingListDataset(false,true,false,"헬스트레이닝3","송파","주3회 (수)","09:00"));
         matchingListDatasets.add(new MatchingListDataset(true,false,false,"헬스트레이닝4","송파","주4회 (수)","10:00"));
 
+        setNumOfTextViews();
+
         matchingListDatasetsFiltered.addAll(matchingListDatasets);
+    }
+
+    private void setNumOfTextViews() {
+        numOfRegistered = 0;
+        numOfAlmost = 0;
+        numOfStar = 0;
+
+        for(int idx=0; idx<matchingListDatasets.size(); idx++) {
+            if(matchingListDatasets.get(idx).isRegistered()) numOfRegistered += 1;
+            if(matchingListDatasets.get(idx).isAlmost()) numOfAlmost += 1;
+            if(matchingListDatasets.get(idx).isStar()) numOfStar += 1;
+        }
     }
 
     @Override
@@ -146,8 +166,6 @@ public class MatchingFragment extends Fragment implements View.OnClickListener, 
             }
 
             matchingListDatasetsFiltered.addAll(filteringList);
-//            matchingListDatasets.clear();
-//            matchingListDatasets.addAll(tempMatchingListDatasets);
         }
         isLayoutSelected[position] = !isLayoutSelected[position];
         matchingAdapter.notifyDataSetChanged();

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,6 +64,17 @@ public class ChattingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ch
                     }
                 }
             });
+
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION) {
+                        Toast.makeText(context, position + " 롱 클릭", Toast.LENGTH_SHORT).show();
+                    }
+                    return false;
+                }
+            });
         }
     }
 
@@ -80,8 +92,19 @@ public class ChattingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ch
 
         holder.textViewOpponent.setText(chattingListDataset.getOpponentName());
         holder.textViewRecentTalk.setText(chattingListDataset.getRecentTalk());
-        holder.textViewBeforeTime.setText(chattingListDataset.getBeforeTime());
-        holder.textViewNumOfChat.setText(chattingListDataset.getNumOfChat().toString());
+        if(chattingListDataset.getBeforeTime() < 60) {
+            holder.textViewBeforeTime.setText(chattingListDataset.getBeforeTime().toString() + " 분전");
+        } else {
+            holder.textViewBeforeTime.setText("오래전");
+        }
+
+        if(chattingListDataset.getNumOfChat() == 0) {
+            holder.imageViewCircleBtn.setVisibility(View.GONE);
+            holder.textViewNumOfChat.setVisibility(View.GONE);
+        } else {
+            holder.textViewNumOfChat.setText(chattingListDataset.getNumOfChat().toString());
+        }
+
     }
 
     @Override
