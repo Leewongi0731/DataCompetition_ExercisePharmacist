@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,9 +20,10 @@ import com.example.physicalplatform.data.MatchingListDataset;
 
 import java.util.ArrayList;
 
-public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<MatchingFragmentRecyclerViewAdapter.ViewHolder> {
+public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<MatchingFragmentRecyclerViewAdapter.ViewHolder> implements Filterable {
     private Context context;
     private ArrayList<MatchingListDataset> matchingListDatasets;
+    private ArrayList<MatchingListDataset> matchingListDatasetsFiltered;
 
     private AppCompatActivity activity;
     private FragmentTransaction transaction;
@@ -28,6 +31,37 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
     public MatchingFragmentRecyclerViewAdapter(Context context, ArrayList<MatchingListDataset> matchingListDatasets) {
         this.context = context;
         this.matchingListDatasets = matchingListDatasets;
+        this.matchingListDatasetsFiltered = matchingListDatasets;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String charString = constraint.toString();
+                if(charString.isEmpty()) {
+                    matchingListDatasetsFiltered = matchingListDatasets;
+                } else {
+                    ArrayList<MatchingListDataset> filteringList = new ArrayList<>();
+                    for(MatchingListDataset dataset : matchingListDatasets) {
+                        if(dataset.getListTitle().toLowerCase().contains(charString.toLowerCase())) {
+                            filteringList.add(dataset);
+                        }
+                    }
+                    matchingListDatasetsFiltered = filteringList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = matchingListDatasetsFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                matchingListDatasetsFiltered = (ArrayList<MatchingListDataset>)results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,13 +83,9 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if(position != RecyclerView.NO_POSITION) {
-//                        transaction.replace(R.id.frameLayout, new MatchingDetailFragment());
-//                        transaction.addToBackStack("matchingList-" + position);
-//                        transaction.commit();
-
                         activity = (AppCompatActivity)view.getContext();
                         transaction = activity.getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_container, new MatchingDetailFragment());
+                        transaction.replace(R.id.frame_container, new MatchingDetailFragment(matchingListDatasetsFiltered.get(position)));
                         transaction.addToBackStack(null);
                         transaction.commit();
                     }
@@ -74,7 +104,7 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
 
     @Override
     public void onBindViewHolder(@NonNull MatchingFragmentRecyclerViewAdapter.ViewHolder holder, int position) {
-        MatchingListDataset matchingListDataset = matchingListDatasets.get(position);
+        MatchingListDataset matchingListDataset = matchingListDatasetsFiltered.get(position);
 
         holder.textViewMatchingListTitle.setText(matchingListDataset.getListTitle());
         holder.textViewMatchingListLocation.setText(matchingListDataset.getLocation());
@@ -84,6 +114,6 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
 
     @Override
     public int getItemCount() {
-        return matchingListDatasets.size();
+        return matchingListDatasetsFiltered.size();
     }
 }
