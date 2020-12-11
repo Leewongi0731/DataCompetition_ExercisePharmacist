@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,10 +16,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.physicalplatform.R;
 import com.example.physicalplatform.chatting.ChattingFragment;
+import com.example.physicalplatform.chatting.ChattingFragmentRecyclerViewAdapter;
+import com.example.physicalplatform.data.MatchingReviewListDataset;
 import com.example.physicalplatform.data.MatchingDetailDataset;
 import com.example.physicalplatform.data.MatchingListDataset;
 
@@ -63,6 +65,9 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
 
     private LinearLayout linearLayoutClassReview;
     private RecyclerView recyclerViewClassReviewList;
+    private RecyclerView.LayoutManager classReviewLayoutManager;
+    private MatchingFragmentReviewListRecyclerViewAdapter classReviewAdapter;
+    private ArrayList<MatchingReviewListDataset> classReviewListDatasets;
 
     private MatchingListDataset matchingListDataset;
 
@@ -138,19 +143,38 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
 
         linearLayoutClassReview = viewGroup.findViewById(R.id.linearLayoutClassReview);
         recyclerViewClassReviewList = viewGroup.findViewById(R.id.recyclerViewClassReviewList);
+        classReviewAdapter = new MatchingFragmentReviewListRecyclerViewAdapter(context, classReviewListDatasets);
+
+        recyclerViewClassReviewList.setAdapter(classReviewAdapter);
+        recyclerViewClassReviewList.setHasFixedSize(true);
+
+        classReviewLayoutManager = new LinearLayoutManager(context);
+        recyclerViewClassReviewList.setLayoutManager(classReviewLayoutManager);
+
 
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
     }
 
     private void initDataset() {
+        // Detail Page
         String listTitle = matchingListDataset.getListTitle();
         String period = matchingListDataset.getPeriod() + " " + matchingListDataset.getClassTime();
-        String introductionContents = "헬스를 전문적으로 배우는 것이 아닌 근력을 탄탄하고 키우고 싶은 노인분들을 대상으로 운영하고자 합니다.";
-        String curriculumContents = "1주차 - OT\n2주차 - 헬스트레이닝1\n3주차 - 헬스트레이닝2\n4주차 - 헬스트레이닝3";
+        String introductionContents = "헬스를 전문적으로 배우는 것이 아닌 근력을 탄탄하고 키우고 싶은 노인분들을 대상으로 운영하고자 합니다.\n강의 수강신청 하실 때 이 부분을 유념해주시고 질문사항이 있으면 아래 강좌에 대해 질문하기 버튼을 클릭하시면 됩니다.";
+        String curriculumContents = "1주차 - OT\n2주차 - 헬스트레이닝1\n3주차 - 헬스트레이닝2\n4주차 - 헬스트레이닝3\n5주차 - 헬스트레이닝4\n6주차 - 헬스트레이닝5\n7주차 - 혼자하는 헬스 트레이닝\n8주차 - 마무리";
         String classPlanSummary = "매주 수요일 7시에서 8시 사이에 진행합니다.";
 
-        matchingDetailDatasets = new MatchingDetailDataset(listTitle,"이깅사","간단히 할 수 있는 헬스트레이닝",period,4.6,introductionContents,curriculumContents,classPlanSummary);
+        matchingDetailDatasets = new MatchingDetailDataset(listTitle,"이강사","간단히 할 수 있는 헬스트레이닝",period,4.6,introductionContents,curriculumContents,classPlanSummary);
+
+        // Detail Page Reviews
+        classReviewListDatasets = new ArrayList<>();
+        classReviewListDatasets.add(new MatchingReviewListDataset("","배수지","정말 좋은 수업해주셔서 감사합니다.",4.6,"2020.12.04"));
+        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.0,"2020.12.03"));
+        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
+        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
+        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
+        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
+        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
     }
 
     @Override
