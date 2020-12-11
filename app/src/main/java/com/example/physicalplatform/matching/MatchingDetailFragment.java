@@ -28,6 +28,8 @@ import com.example.physicalplatform.data.MatchingListDataset;
 
 import java.util.ArrayList;
 
+import static com.example.physicalplatform.MainPageActivity.bottomNavigationView;
+
 public class MatchingDetailFragment extends Fragment implements View.OnClickListener {
     private ViewGroup viewGroup;
     private Context context;
@@ -197,9 +199,7 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
                 break;
             case R.id.buttonIntroductionQuestion:
                 fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                transaction.replace(R.id.frame_container, new ChattingFragment());
-                transaction.addToBackStack("chatting");
-                transaction.commit();
+                bottomNavigationView.setSelectedItemId(R.id.nav_chat);
                 break;
             case R.id.buttonIntroductionRegister:
                 // matchingListDataset.setRegistered(true);

@@ -25,6 +25,8 @@ import com.example.physicalplatform.matching.MatchingFragment;
 
 import java.util.ArrayList;
 
+import static com.example.physicalplatform.MainPageActivity.bottomNavigationView;
+
 public class HealthInfoVideoFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
@@ -48,6 +50,8 @@ public class HealthInfoVideoFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_info_video, container, false);
         context = container.getContext();
 
+        fragmentManager = getActivity().getSupportFragmentManager();
+
         Bundle bundle=getArguments();
         if(bundle !=null) {
             exerciseName = bundle.getString("exerciseName");
@@ -58,7 +62,6 @@ public class HealthInfoVideoFragment extends Fragment {
         healthInfoVideoBackBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.popBackStackImmediate();
             }
         });
@@ -68,11 +71,13 @@ public class HealthInfoVideoFragment extends Fragment {
         goMactchingPageBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                activity = (AppCompatActivity)v.getContext();
-                transaction = activity.getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_container, new MatchingFragment());
-                transaction.addToBackStack(null);
-                transaction.commit();
+                fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                bottomNavigationView.setSelectedItemId(R.id.nav_matching);
+//                activity = (AppCompatActivity)v.getContext();
+//                transaction = activity.getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.frame_container, new MatchingFragment());
+//                transaction.addToBackStack(null);
+//                transaction.commit();
             }
         });
 
