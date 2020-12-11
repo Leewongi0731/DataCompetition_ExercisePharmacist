@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,52 +13,56 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.physicalplatform.MainActivity;
 import com.example.physicalplatform.R;
 
-public class CaptureFragment extends Fragment implements View.OnClickListener {
+public class StartLoginPageFragment extends Fragment implements View.OnClickListener {
     private ViewGroup viewGroup;
     private Context context;
-    private Button captureBtn;
+
+    private Button memberLoginBtn;
+    private Button InstructorLoginBtn;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
 
-    public CaptureFragment(FragmentManager fragmentManager) {
+    public StartLoginPageFragment(FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.capture_identity_card, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.start_page_login, container, false);
         context = container.getContext();
 
         initLayout();
 
-        captureBtn.setOnClickListener(this);
-        
+        memberLoginBtn.setOnClickListener(this);
+        InstructorLoginBtn.setOnClickListener(this);
+
         return viewGroup;
     }
 
     private void initLayout() {
-        captureBtn = viewGroup.findViewById(R.id.captureBtn);
+        memberLoginBtn = viewGroup.findViewById(R.id.memberLoginBtn);
+        InstructorLoginBtn = viewGroup.findViewById(R.id.InstructorLoginBtn);
 
         transaction = fragmentManager.beginTransaction();
-    }
-    
-    private boolean processOCR(){
-        return true;
     }
 
     @Override
     public void onClick(View v) {
-        if( processOCR() ){
-            transaction.replace(R.id.frameLayout, new SignupFragment(fragmentManager));
-            transaction.addToBackStack("signUp");
-            transaction.commit();
-        }else {
-            Toast.makeText(context, "카드를 잘 인식하지 못하였습니다. 다시 촬영해주세요.", Toast.LENGTH_SHORT).show();
+        switch(v.getId()) {
+            case R.id.memberLoginBtn:
+                transaction.replace(R.id.frameLayout, new LoginFragment(fragmentManager));
+                transaction.addToBackStack("login");
+                transaction.commit();
+                break;
+            case R.id.InstructorLoginBtn:
+                transaction.replace(R.id.frameLayout, new LoginFragment(fragmentManager));
+                transaction.addToBackStack("login");
+                transaction.commit();
+                break;
         }
     }
 }

@@ -6,101 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="220dp"
-        android:background="@drawable/ic_home_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="140dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/border"
-        android:elevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="112dp"
-            android:layout_height="112dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/ic_main_icon" />
-    </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="체육 플랫폼"
-        android:textColor="@color/white"
-        android:textSize="45sp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="사회적 약자를 위한 체력증진 및 재활 플랫폼"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        />
-
-    <Button
-        android:id="@+id/memberLoginBtn"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:text="회원으로 로그인하기"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/InstructorLoginBtn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="159dp"
-        android:onClick="loginBtn"
-        android:backgroundTint="@color/custom_red"
-        />
-
-    <Button
-        android:id="@+id/InstructorLoginBtn"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="70dp"
-        android:text="강사로 로그인하기"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="155dp"
-        android:onClick="loginBtn"
-        android:backgroundTint="@color/custom_orange"
-        />
-
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="350dp"
-        android:layout_height="600dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:elevation="4dp"
-        >
-    </FrameLayout>
+        app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

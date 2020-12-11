@@ -3,80 +3,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="100dp"
-    android:layout_marginBottom="70dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/border"
-    android:elevation="20dp"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="220dp"
+        android:background="@drawable/ic_home_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginIdLayout"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/border"
+        android:elevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_main_icon" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:hint="아이디"
-        android:layout_marginTop="65dp"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginId"
+        app:cardCornerRadius="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D3D3D3"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginIdLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="85dp"
+                android:layout_marginRight="50dp"
+                android:hint="아이디"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#D3D3D3" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginPwdLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"
+                android:hint="비밀번호"
+                app:layout_constraintTop_toBottomOf="@+id/loginIdLayout">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginPwdLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:hint="비밀번호"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/loginIdLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginPwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#D3D3D3	"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#D3D3D3	" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
 
-        android:text="로그인하기"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/loginPwdLayout"
-        android:backgroundTint="@color/custom_red"
-        />
-    <Button
-        android:id="@+id/newMemberBtn"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+                android:layout_marginRight="50dp"
+                android:backgroundTint="@color/custom_red"
+                android:text="로그인하기"
+                app:layout_constraintTop_toBottomOf="@+id/loginPwdLayout" />
 
-        android:text="회원가입하기"
-        android:textColor="@color/custom_red"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
-        android:backgroundTint="@color/custom_white"
-        android:elevation="25dp"
-        />
+            <Button
+                android:id="@+id/newMemberBtn"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"
+                android:backgroundTint="@color/custom_white"
+                android:elevation="25dp"
+                android:layout_marginBottom="30dp"
+                android:text="회원가입하기"
+                android:textColor="@color/custom_red"
+                app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

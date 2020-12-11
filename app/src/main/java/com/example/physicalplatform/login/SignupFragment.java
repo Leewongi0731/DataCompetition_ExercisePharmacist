@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.physicalplatform.R;
 
@@ -26,6 +27,13 @@ public class SignupFragment extends Fragment {
     private EditText signupEmail;
     private EditText signupBirth;
     private EditText signupPhone;
+
+    private FragmentManager fragmentManager;
+
+    public SignupFragment(FragmentManager fragmentManager) {
+        this.fragmentManager = fragmentManager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

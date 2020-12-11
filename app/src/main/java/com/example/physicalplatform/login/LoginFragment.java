@@ -14,12 +14,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.physicalplatform.MainActivity;
 import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements View.OnClickListener {
     private ViewGroup viewGroup;
     private Context context;
     private Button loginBtn;
@@ -27,20 +28,48 @@ public class LoginFragment extends Fragment {
     private EditText loginId;
     private EditText loginPwd;
     private InputMethodManager imm;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
+
+    public LoginFragment(FragmentManager fragmentManager) {
+        this.fragmentManager = fragmentManager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.login, container, false);
         context = container.getContext();
 
-        loginId = (EditText) viewGroup.findViewById(R.id.loginId);
-        loginPwd = (EditText) viewGroup.findViewById(R.id.loginPwd);
+        initLayout();
 
         // 로그인 버튼 클릭
-        loginBtn = (Button) viewGroup.findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
+        loginBtn.setOnClickListener(this);
+        
+        // 회원버튼 클릭
+        newMemberBtn.setOnClickListener(this);
+
+        return viewGroup;
+    }
+
+    private void initLayout() {
+        loginId = viewGroup.findViewById(R.id.loginId);
+        loginPwd = viewGroup.findViewById(R.id.loginPwd);
+        loginBtn = viewGroup.findViewById(R.id.loginBtn);
+        newMemberBtn = viewGroup.findViewById(R.id.newMemberBtn);
+
+        transaction = fragmentManager.beginTransaction();
+    }
+
+    private boolean isMember(String id, String pwd){
+        // 아직 미구현
+        return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.loginBtn:
                 String id = loginId.getText().toString();
                 String pwd = loginPwd.getText().toString();
 
@@ -54,25 +83,12 @@ public class LoginFragment extends Fragment {
                     loginId.setText("");
                     loginPwd.setText("");
                 }
-            }
-        });
-        
-        
-        // 회원버튼 클릭
-        newMemberBtn = (Button) viewGroup.findViewById(R.id.newMemberBtn);
-        newMemberBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                ((MainActivity)getActivity()).replaceFragment( new CaptureFragment() );
-            }
-        });
-
-
-        return viewGroup;
-    }
-
-    private boolean isMember(String id, String pwd){
-        // 아직 미구현
-        return true;
+                break;
+            case R.id.newMemberBtn:
+                transaction.replace(R.id.frameLayout, new CaptureFragment(fragmentManager));
+                transaction.addToBackStack("photoRegister");
+                transaction.commit();
+                break;
+        }
     }
 }
