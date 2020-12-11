@@ -47,7 +47,6 @@ public class SignupFragment extends Fragment {
         signupBirth = (EditText)viewGroup.findViewById(R.id.signupBirth);
         signupPhone = (EditText)viewGroup.findViewById(R.id.signupPhone);
 
-
         enrollmentBtn = (Button)viewGroup.findViewById(R.id.enrollmentBtn);
         enrollmentBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -55,11 +54,14 @@ public class SignupFragment extends Fragment {
                 if( addMember() ){
                     String age = getAge();
                     String sex = getSex();
+
+                    fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                     
                     Intent intent = new Intent(context, FirstLoginActivity.class);
                     intent.putExtra( "age", age );
                     intent.putExtra( "sex", sex );
                     startActivity(intent);
+                    getActivity().finish();
                 }else{
                     Toast.makeText(context, "잘못 입력하셨습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
 
@@ -69,10 +71,8 @@ public class SignupFragment extends Fragment {
                     signupEmail.setText("");
                     signupPhone.setText("");
                 }
-
             }
         });
-
         return viewGroup;
     }
 

@@ -14,6 +14,8 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
@@ -21,23 +23,35 @@ import com.example.physicalplatform.R;
 import static com.example.physicalplatform.login.FirstLoginActivity.age;
 import static com.example.physicalplatform.login.FirstLoginActivity.sex;
 
-class DetailInformationFragment extends Fragment {
+public class DetailInformationFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
+
+    private EditText detailAge;
+    private EditText detailSex;
     private EditText detailTall;
     private EditText detailWeight;
     private EditText detailZone;
+
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
+
+    public DetailInformationFragment(FragmentManager fragmentManager) {
+        this.fragmentManager = fragmentManager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.detail_information, container, false);
         context = container.getContext();
 
-        EditText detailAge = (EditText) viewGroup.findViewById(R.id.detailAge);
-        EditText detailSex = (EditText) viewGroup.findViewById(R.id.detailSex);
-        EditText detailTall = (EditText) viewGroup.findViewById(R.id.detailTall);
-        EditText detailWeight = (EditText) viewGroup.findViewById(R.id.detailWeight);
-        EditText detailZone = (EditText) viewGroup.findViewById(R.id.detailZone);
+        detailAge = (EditText) viewGroup.findViewById(R.id.detailAge);
+        detailSex = (EditText) viewGroup.findViewById(R.id.detailSex);
+        detailTall = (EditText) viewGroup.findViewById(R.id.detailTall);
+        detailWeight = (EditText) viewGroup.findViewById(R.id.detailWeight);
+        detailZone = (EditText) viewGroup.findViewById(R.id.detailZone);
+
         detailAge.setText(age);
         detailSex.setText(sex);
         detailAge.setFocusable(false);
@@ -54,9 +68,9 @@ class DetailInformationFragment extends Fragment {
                 String userID = "새로운 로그인 채크";
                 intent.putExtra( "userID", userID );
                 startActivity(intent);
+                getActivity().finish();
             }
         });
-
 
         detailTall.addTextChangedListener(new TextWatcher() {
             @Override

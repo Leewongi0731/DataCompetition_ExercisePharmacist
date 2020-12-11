@@ -77,6 +77,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     Intent intent = new Intent(context, MainPageActivity.class);
                     intent.putExtra( "userID", "기존 유저 로그인 채크" );
                     startActivity(intent);
+                    getActivity().finish();
                 }else{
                     // 회원 X -> 아이디 / 비밀번호 다시 입력받도록
                     Toast.makeText(context, "일치하는 회원정보가 없습니다.", Toast.LENGTH_SHORT).show();
