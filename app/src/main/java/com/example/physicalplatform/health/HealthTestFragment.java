@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +25,9 @@ public class HealthTestFragment  extends Fragment {
     private EditText healthTestEditTest1;
     private EditText healthTestEditTest2;
     private EditText healthTestEditTest3;
+    private TextView healthTestTextView1;
+    private TextView healthTestTextView2;
+    private TextView healthTestTextView3;
     private Button healthTestResultBtn;
 
 
@@ -39,6 +43,56 @@ public class HealthTestFragment  extends Fragment {
         healthTestEditTest1 = viewGroup.findViewById(R.id.healthTestEditTest1);
         healthTestEditTest2 = viewGroup.findViewById(R.id.healthTestEditTest2);
         healthTestEditTest3 = viewGroup.findViewById(R.id.healthTestEditTest3);
+
+
+        Bundle args = new Bundle();
+        HealthShowVideoFragment healthShowVideoFragment = new HealthShowVideoFragment();
+
+        healthTestTextView1 = viewGroup.findViewById(R.id.healthTestTextView1);
+        healthTestTextView1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                args.putString("videoPath", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/kind4_5/kind4_5.mp4"); // key value를 Bundle에 담아서 파라미터로 전송
+                healthShowVideoFragment.setArguments(args);
+
+                activity = (AppCompatActivity)v.getContext();
+                transaction = activity.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, healthShowVideoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        healthTestTextView2 = viewGroup.findViewById(R.id.healthTestTextView2);
+        healthTestTextView2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                args.putString("videoPath", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/kind4_9/kind4_9.mp4"); // key value를 Bundle에 담아서 파라미터로 전송
+                healthShowVideoFragment.setArguments(args);
+
+                activity = (AppCompatActivity)v.getContext();
+                transaction = activity.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, healthShowVideoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        healthTestTextView3 = viewGroup.findViewById(R.id.healthTestTextView3);
+        healthTestTextView3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                args.putString("videoPath", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/kind4_7/kind4_7.mp4"); // key value를 Bundle에 담아서 파라미터로 전송
+                healthShowVideoFragment.setArguments(args);
+
+                activity = (AppCompatActivity)v.getContext();
+                transaction = activity.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, healthShowVideoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
 
 
         // click test btn
@@ -61,6 +115,7 @@ public class HealthTestFragment  extends Fragment {
                 transaction.commit();
             }
         });
+
 
         return viewGroup;
     }

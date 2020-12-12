@@ -45,6 +45,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/healthTestTextView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="측정방법"
@@ -89,6 +90,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/healthTestTextView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="측정방법"
@@ -134,6 +136,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/healthTestTextView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="측정방법"

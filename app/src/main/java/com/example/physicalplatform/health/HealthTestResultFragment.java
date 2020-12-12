@@ -1,6 +1,8 @@
 package com.example.physicalplatform.health;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.physicalplatform.DataBase;
+import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 
 public class HealthTestResultFragment extends Fragment {
@@ -25,6 +29,7 @@ public class HealthTestResultFragment extends Fragment {
     private String test3;
     private TextView healthTestUserName;
     private TextView healthTestUserPositionAge;
+    private Button healthTestDetailTestBtn;
     private Button healthTestMainBtn;
 
     private AppCompatActivity activity;
@@ -46,12 +51,27 @@ public class HealthTestResultFragment extends Fragment {
         getRecommendExercise();
 
         // set Name
-        healthTestUserName = (TextView)viewGroup.findViewById(R.id.healthTestUserName);
-    //    healthTestUserName.setText("이원기");
+        healthTestUserName = viewGroup.findViewById(R.id.healthTestUserName);
+        healthTestUserName.setText( DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getName()  );
 
         // set position, Age
         healthTestUserPositionAge = viewGroup.findViewById(R.id.healthTestUserPositionAge);
-     //   healthTestUserPositionAge.setText("서울 88세");
+        String tmp = DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getLocation() + " ";
+        tmp += DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getAge() + "세";
+        healthTestUserPositionAge.setText( tmp );
+
+
+        // click webPageBtn
+
+        healthTestDetailTestBtn = viewGroup.findViewById(R.id.healthTestDetailTestBtn);
+        healthTestDetailTestBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse( "http://14.49.46.105/front/center/centerIntroList.do" ));
+                context.startActivity(intent);
+            }
+        });
+
 
 
         // click homeBtn
