@@ -55,6 +55,7 @@ public class MatchingFragmentReviewListRecyclerViewAdapter  extends RecyclerView
     public void onBindViewHolder(@NonNull MatchingFragmentReviewListRecyclerViewAdapter.ViewHolder holder, int position) {
         MatchingReviewListDataset matchingReviewListDataset = matchingReviewListDatasets.get(position);
 
+        holder.circleImageViewProfile.setImageResource(matchingReviewListDataset.getImageSrc());
         holder.textViewName.setText(matchingReviewListDataset.getName());
         holder.textViewDate.setText(matchingReviewListDataset.getDate());
         holder.textViewContents.setText(matchingReviewListDataset.getContents());

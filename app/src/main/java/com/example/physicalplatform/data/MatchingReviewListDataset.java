@@ -1,13 +1,13 @@
 package com.example.physicalplatform.data;
 
 public class MatchingReviewListDataset {
-    private String imageSrc;
+    private Integer imageSrc;
     private String name;
     private String contents;
     private Double rating;
     private String date;
 
-    public MatchingReviewListDataset(String imageSrc, String name, String contents, Double rating, String date) {
+    public MatchingReviewListDataset(Integer imageSrc, String name, String contents, Double rating, String date) {
         this.imageSrc = imageSrc;
         this.name = name;
         this.contents = contents;
@@ -15,7 +15,7 @@ public class MatchingReviewListDataset {
         this.date = date;
     }
 
-    public String getImageSrc() {
+    public Integer getImageSrc() {
         return imageSrc;
     }
 

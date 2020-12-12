@@ -21,9 +21,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/imageViewDetailBackground"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/matching_detail_background"
+                android:layout_height="200dp"
+                android:src="@drawable/png_exercise_example"
                 android:scaleType="centerCrop"/>
         </LinearLayout>
     </LinearLayout>

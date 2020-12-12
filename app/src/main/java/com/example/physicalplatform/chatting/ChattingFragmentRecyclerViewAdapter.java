@@ -90,6 +90,7 @@ public class ChattingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ch
     public void onBindViewHolder(@NonNull ChattingFragmentRecyclerViewAdapter.ViewHolder holder, int position) {
         ChattingListDataset chattingListDataset = chattingListDatasetsFiltered.get(position);
 
+        holder.imageViewProfile.setImageResource(chattingListDataset.getProfileSrc());
         holder.textViewOpponent.setText(chattingListDataset.getOpponentName());
         holder.textViewRecentTalk.setText(chattingListDataset.getRecentTalk());
         if(chattingListDataset.getBeforeTime() < 60) {

@@ -97,10 +97,12 @@ public class MatchingFragment extends Fragment implements View.OnClickListener, 
         matchingListDatasets = new ArrayList<>();
         matchingListDatasetsFiltered = new ArrayList<>();
 
-        matchingListDatasets.add(new MatchingListDataset(true,true,true,"헬스트레이닝1","송파","주1회 (수)","07:00"));
-        matchingListDatasets.add(new MatchingListDataset(true,false,true,"헬스트레이닝2","송파","주2회 (수)","08:00"));
-        matchingListDatasets.add(new MatchingListDataset(false,true,false,"헬스트레이닝3","송파","주3회 (수)","09:00"));
-        matchingListDatasets.add(new MatchingListDataset(true,false,false,"헬스트레이닝4","송파","주4회 (수)","10:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_1, true,true,true,"헬스트레이닝1","송파구","주1회 (수)","09:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_2,true,false,true,"헬스트레이닝2","강남구","주2회","11:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_3,false,true,false,"헬스트레이닝3","중구","주3회","13:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_4,true,false,false,"헬스트레이닝4","강서구","주2회","09:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_5,false,false,false,"헬스트레이닝5","광진구","주1회 (목)","14:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_6,true,false,true,"헬스트레이닝6","송파구","주3회","15:00"));
 
         setNumOfTextViews();
 

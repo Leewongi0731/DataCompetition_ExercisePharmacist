@@ -61,12 +61,12 @@ public class ChattingFragment extends Fragment {
         chattingListDatasets = new ArrayList<>();
         chattingListDatasetsFiltered = new ArrayList<>();
 
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝1","안녕하세요.\n헬스트레이닝1입니다.",1,1));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝2","안녕하세요.\n헬스트레이닝2입니다.",5,2));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.",20,0));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝4","안녕하세요.\n헬스트레이닝4입니다.",76,0));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝5","안녕하세요.\n헬스트레이닝5입니다.",60,0));
-        chattingListDatasets.add(new ChattingListDataset("헬스트레이닝6","안녕하세요.\n헬스트레이닝6입니다.",15,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_1,"헬스트레이닝1","안녕하세요.\n헬스트레이닝1입니다.",1,1));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_2,"헬스트레이닝2","안녕하세요.\n헬스트레이닝2입니다.",5,2));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_3,"헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.",20,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_4,"헬스트레이닝4","안녕하세요.\n헬스트레이닝4입니다.",76,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_5,"헬스트레이닝5","안녕하세요.\n헬스트레이닝5입니다.",60,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_6,"헬스트레이닝6","안녕하세요.\n헬스트레이닝6입니다.",15,0));
 
         // 시간 순으로 정렬
         Collections.sort(chattingListDatasets, new BeforeTimeAscending());
