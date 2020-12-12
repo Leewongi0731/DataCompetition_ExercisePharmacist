@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.physicalplatform.data.CSVFile;
 import com.example.physicalplatform.data.HealthCardDataset;
 import com.example.physicalplatform.data.HealthVideoDataset;
+import com.example.physicalplatform.data.Member;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBase {
+    public static HashMap<String, Member> MEMBER_DB;
     public static HashMap<String, HealthCardDataset> HEALTH_DB;
     public static HashMap<String, HealthVideoDataset> HEALTH_VIDEO_DB;
     public static HashMap<String, ArrayList<String>> HEALTH_RECOMMEND_DB;
@@ -24,7 +26,12 @@ public class DataBase {
         this.context = context;
     }
 
-
+    public void initializMemberDB() {
+        MEMBER_DB = new HashMap<String, Member>();
+// String name, String pwd, String email, String registrationNumber, String gender, String height, String weight, String score, String location
+        MEMBER_DB.put( "490000-2000000", new Member("김혜자", "pwd", "email", "490000-2000000", "151.5", "44.58",  "금상", "서울"));
+        MEMBER_DB.put( "530000-1000000", new Member("김춘배", "pwd", "email", "530000-1000000", "164.2", "80.8",  "은상", "서울"));
+    }
 
     public void initializHealthDB() {
         HEALTH_DB = new HashMap<String, HealthCardDataset>();

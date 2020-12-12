@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,9 +17,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.physicalplatform.DataBase;
+import com.example.physicalplatform.MainActivity;
 import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 import com.example.physicalplatform.data.HealthCardDataset;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -26,6 +30,7 @@ public class HealthFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
 
+    private TextView healthMainPageNameSet;
     private ArrayList<HealthCardDataset> bestHealthCardDataset;
     private ArrayList<HealthCardDataset> trendHealthCardDataset;
     private RecyclerView.LayoutManager bestHealthLayoutManager;
@@ -39,7 +44,7 @@ public class HealthFragment extends Fragment {
     private AppCompatActivity activity;
     private FragmentTransaction transaction;
 
-    private String userKey = "60대/정상/F/은상/";
+    private String userKey;
     ArrayList<String> mvList;
     ArrayList<String> resultMVList;
     @Nullable
@@ -47,6 +52,12 @@ public class HealthFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_page, container, false);
         context = container.getContext();
+
+        userKey = DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getKey();
+
+        healthMainPageNameSet = viewGroup.findViewById(R.id.healthMainPageNameSet);
+        healthMainPageNameSet.setText(  DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getName() + "님한테 맞는 운동처방" );
+
 
         initLayout();
 

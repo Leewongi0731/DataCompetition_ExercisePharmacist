@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainPageActivity extends AppCompatActivity {
+    public static final String LOGIN_USER_ID = "490000-2000000";
+
+
     String userId;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
@@ -81,7 +84,8 @@ public class MainPageActivity extends AppCompatActivity {
 
     private void initializeDataBase(){
         DataBase db = new DataBase(getApplicationContext());
-        // DB 초기화
+        // DB 초기화.
+        db.initializMemberDB();
         db.initializHealthDB();
         db.initializHealtVideohDB();
         db.initializRecommandFile();

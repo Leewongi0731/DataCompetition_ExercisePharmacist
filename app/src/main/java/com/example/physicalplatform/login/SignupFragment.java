@@ -47,6 +47,10 @@ public class SignupFragment extends Fragment {
         signupBirth = (EditText)viewGroup.findViewById(R.id.signupBirth);
         signupPhone = (EditText)viewGroup.findViewById(R.id.signupPhone);
 
+        // 이부분 OCR구현후 다시 짜야함
+        signupBirth.setText( "960731-1******" );
+        signupBirth.setFocusable(false);
+
         enrollmentBtn = (Button)viewGroup.findViewById(R.id.enrollmentBtn);
         enrollmentBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -86,7 +90,7 @@ public class SignupFragment extends Fragment {
        
        // 주민번호에서 나이 계산 후 반환
        
-       return "65";
+       return "25";
    }
    
    private String getSex(){

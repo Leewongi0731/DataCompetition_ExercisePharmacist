@@ -13,12 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.physicalplatform.DataBase;
+import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 
 public class SettingFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
 
+    private TextView settingLoginUserName;
     private TextView textViewSettingNotice;
     private TextView textViewSettingQuestions;
 
@@ -29,6 +32,11 @@ public class SettingFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.setting_page, container, false);
         context = container.getContext();
+
+
+        settingLoginUserName = viewGroup.findViewById(R.id.settingLoginUserName);
+        settingLoginUserName.setText( DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getName() );
+
 
         textViewSettingNotice = viewGroup.findViewById(R.id.textViewSettingNotice);
         textViewSettingNotice.setOnClickListener(new View.OnClickListener() {
