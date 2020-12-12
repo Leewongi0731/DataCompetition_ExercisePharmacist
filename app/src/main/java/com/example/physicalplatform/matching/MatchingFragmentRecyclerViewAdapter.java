@@ -6,12 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,6 +64,7 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private ImageView imageViewStar;
         private TextView textViewMatchingListTitle;
         private TextView textViewMatchingListLocation;
         private TextView textViewMatchingListPeriod;
@@ -73,10 +73,11 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
         public ViewHolder(View view) {
             super(view);
 
-            textViewMatchingListTitle= view.findViewById(R.id.textViewMatchingListTitle);
-            textViewMatchingListLocation= view.findViewById(R.id.textViewMatchingListLocation);
-            textViewMatchingListPeriod= view.findViewById(R.id.textViewMatchingListPeriod);
-            textViewMatchingListClassTime= view.findViewById(R.id.textViewMatchingListClassTime);
+            imageViewStar = view.findViewById(R.id.imageViewStar);
+            textViewMatchingListTitle = view.findViewById(R.id.textViewMatchingListTitle);
+            textViewMatchingListLocation = view.findViewById(R.id.textViewMatchingListLocation);
+            textViewMatchingListPeriod = view.findViewById(R.id.textViewMatchingListPeriod);
+            textViewMatchingListClassTime = view.findViewById(R.id.textViewMatchingListClassTime);
 
             view.setOnClickListener(new View.OnClickListener() {            // recycler view item 클릭
                 @Override
@@ -106,6 +107,11 @@ public class MatchingFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Ma
     public void onBindViewHolder(@NonNull MatchingFragmentRecyclerViewAdapter.ViewHolder holder, int position) {
         MatchingListDataset matchingListDataset = matchingListDatasetsFiltered.get(position);
 
+        if(!matchingListDataset.isStar()) {
+            holder.imageViewStar.setImageResource(R.drawable.ic_star_non_color);
+        } else {
+            holder.imageViewStar.setImageResource(R.drawable.ic_star_color);
+        }
         holder.textViewMatchingListTitle.setText(matchingListDataset.getListTitle());
         holder.textViewMatchingListLocation.setText(matchingListDataset.getLocation());
         holder.textViewMatchingListPeriod.setText(matchingListDataset.getPeriod());
