@@ -83,10 +83,10 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
     private void initDataset() {
         chattingTalkDatasets = new ArrayList<>();
 
-        chattingTalkDatasets.add(new ChattingTalkDataset(false,"이강사","안녕하세요","2020-12-11 16:18:00"));
-        chattingTalkDatasets.add(new ChattingTalkDataset(true,"나","안녕하세요","2020-12-11 16:19:00"));
-        chattingTalkDatasets.add(new ChattingTalkDataset(false,"이강사","오늘은 1주차 강의 들으셨는데 어떠셨나요?","2020-12-11 16:20:00"));
-        chattingTalkDatasets.add(new ChattingTalkDataset(true,"나","좋았어요 리뷰 올려 드릴게요","2020-12-11 16:21:00"));
+        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.trainer_profile_1,false,"이강사","안녕하세요","2020-12-11 16:18:00"));
+        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.profile,true,"나","안녕하세요","2020-12-11 16:19:00"));
+        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.trainer_profile_1,false,"이강사","오늘은 1주차 강의 들으셨는데 어떠셨나요?","2020-12-11 16:20:00"));
+        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.profile,true,"나","좋았어요 리뷰 올려 드릴게요","2020-12-11 16:21:00"));
     }
 
     @Override
@@ -98,7 +98,7 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
             case R.id.imageViewSendButton:
                 String sendText = editTextSendMessage.getText().toString();
                 editTextSendMessage.setText("");
-                chattingTalkDatasets.add(new ChattingTalkDataset(true,"나",sendText,"2020-12-11 16:22:00"));
+                chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.profile, true,"나",sendText,"2020-12-11 16:22:00"));
                 chattingTalkAdapter.notifyDataSetChanged();
                 break;
         }

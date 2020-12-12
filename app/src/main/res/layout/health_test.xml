@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,15 +27,36 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="30초 의자 앉았다 일어서기(회)"
-                android:textColor="@color/navy"
-                />
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:padding="10dp"
+                    android:text="30초 의자 앉았다 일어서기(회)"
+                    android:textColor="@color/navy"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="측정방법"
+                    android:layout_marginRight="20dp"
+                    android:padding="8dp"
+                    android:background="@drawable/border_btn_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <EditText
                 android:id="@+id/healthTestEditTest1"
                 android:layout_width="match_parent"
@@ -49,17 +72,36 @@
                 android:gravity="start"
                 />
 
-
-            <TextView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:padding="10dp"
-                android:text="2분제자리걷기(m)"
-                android:textColor="@color/navy"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                />
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:padding="10dp"
+                    android:text="2분제자리걷기(m)"
+                    android:textColor="@color/navy"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="측정방법"
+                    android:layout_marginRight="20dp"
+                    android:padding="8dp"
+                    android:background="@drawable/border_btn_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             <EditText
                 android:id="@+id/healthTestEditTest2"
                 android:layout_width="match_parent"
@@ -75,16 +117,35 @@
                 android:gravity="start"
                 />
 
-            <TextView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:padding="10dp"
-                android:text="앉아윗몸앞으로굽히기(cm)"
-                android:textColor="@color/navy"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                />
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:padding="10dp"
+                    android:text="앉아윗몸앞으로굽히기(cm)"
+                    android:textColor="@color/navy"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="측정방법"
+                    android:layout_marginRight="20dp"
+                    android:padding="8dp"
+                    android:background="@drawable/border_btn_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <EditText
                 android:id="@+id/healthTestEditTest3"
                 android:layout_width="match_parent"

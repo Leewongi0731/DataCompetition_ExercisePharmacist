@@ -75,12 +75,14 @@ public class ChattingTalkRecyclerViewAdapter extends RecyclerView.Adapter<Chatti
         ChattingTalkDataset chattingListDataset = chattingListDatasets.get(position);
 
         if(chattingListDataset.isMine()) {      // 내가 친 채팅
+            holder.circleImageViewMy.setImageResource(chattingListDataset.getImageSrc());
             holder.linearLayoutOpponentChat.setVisibility(View.GONE);
             holder.linearLayoutMyChat.setVisibility(View.VISIBLE);
 
             holder.textViewMy.setText("나");
             holder.textViewMyContents.setText(chattingListDataset.getContents());
         } else {
+            holder.circleImageViewOpponent.setImageResource(chattingListDataset.getImageSrc());
             holder.linearLayoutOpponentChat.setVisibility(View.VISIBLE);
             holder.linearLayoutMyChat.setVisibility(View.GONE);
 
