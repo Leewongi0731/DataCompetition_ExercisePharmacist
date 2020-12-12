@@ -13,4 +13,6 @@
     <color name="custom_white">#FFFFFF</color>
     <color name="bottom_indi">#F8413B</color>
     <color name="default_gray">#EFEEF4</color>
+    <color name="pale_gray">#F7F9FC</color>
+    <color name="navy">#092058</color>
 </resources>

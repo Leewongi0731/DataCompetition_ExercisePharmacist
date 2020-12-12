@@ -28,7 +28,7 @@ public class HealthShowVideoFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
 
-    private Button healthShowVideoBackBtn;
+    private TextView healthShowVideoBackBtn;
     private VideoView videoViewHealthVideo;
     private AppCompatActivity activity;
     private FragmentTransaction transaction;
@@ -52,7 +52,7 @@ public class HealthShowVideoFragment extends Fragment {
         }
 
         // set backBtn
-        healthShowVideoBackBtn = (Button) viewGroup.findViewById(R.id.healthShowVideoBackBtn);
+        healthShowVideoBackBtn = viewGroup.findViewById(R.id.healthShowVideoBackBtn);
         healthShowVideoBackBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

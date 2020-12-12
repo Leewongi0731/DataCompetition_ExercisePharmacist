@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +19,7 @@ public class SettingQuestionFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
 
-    private Button settingQuestionsBackBtn;
+    private TextView settingQuestionsBackBtn;
 
     private FragmentManager fragmentManager;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class SettingQuestionFragment extends Fragment {
 
 
         // set backBtn
-        settingQuestionsBackBtn = (Button) viewGroup.findViewById(R.id.settingQuestionsBackBtn);
+        settingQuestionsBackBtn = viewGroup.findViewById(R.id.settingQuestionsBackBtn);
         settingQuestionsBackBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

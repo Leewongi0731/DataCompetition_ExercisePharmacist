@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="마이페이지"
-        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textSize="30sp"
         android:gravity="center"
         android:textColor="@color/white"
         android:background="@drawable/ic_home_background_small" />
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:src="@drawable/png_exercise_example"
@@ -30,83 +30,92 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="이지은"
+            android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="@color/black"
-            android:gravity="center"
+            android:textAlignment="center"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:background="@drawable/border_small"
             android:orientation="vertical"
-            android:elevation="10dp"
-            >
+            android:elevation="2dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="10dp"
                 android:text="신청한 강의"
-                android:gravity="center"/>
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="7"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:gravity="center"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <ScrollView
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/border_small"
-            android:elevation="10dp"
-            >
-
-            <TextView
-                android:id="@+id/textViewSettingNotice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="10dp"
-                android:text="공지사항"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/border_small"
-            android:elevation="10dp"
-            >
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textViewSettingQuestions"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="10dp"
-                android:text="문의사항"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                />
-        </LinearLayout>
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_small"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/textViewSettingNotice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="12dp"
+                        android:textStyle="bold"
+                        android:text="공지사항"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_small"
+                    android:layout_marginBottom="8dp"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:id="@+id/textViewSettingQuestions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="12dp"
+                        android:textStyle="bold"
+                        android:text="문의사항"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 

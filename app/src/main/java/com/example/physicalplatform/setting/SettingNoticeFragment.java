@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +19,7 @@ public class SettingNoticeFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
 
-    private Button settingNoticeBackBtn;
+    private TextView settingNoticeBackBtn;
 
     private FragmentManager fragmentManager;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class SettingNoticeFragment extends Fragment {
         context = container.getContext();
 
         // set backBtn
-        settingNoticeBackBtn = (Button) viewGroup.findViewById(R.id.settingNoticeBackBtn);
+        settingNoticeBackBtn = viewGroup.findViewById(R.id.settingNoticeBackBtn);
         settingNoticeBackBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

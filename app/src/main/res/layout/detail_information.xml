@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
+    android:background="@color/pale_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,6 @@
             android:id="@+id/detailTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:elevation="20dp"
             android:gravity="center"
             android:paddingTop="15dp"
@@ -29,89 +28,126 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#F0F0FF"
-            android:orientation="vertical"
-            android:scrollbars="vertical">
+            android:layout_height="match_parent">
 
-            <TextView
+            <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="나이/성별"
-                android:textColor="@color/black" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:scrollbars="vertical">
 
-            <EditText
-                android:id="@+id/detailAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text=" "
-                android:textColor="@color/black" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="나이/성별"
+                    android:textColor="@color/navy" />
 
-            <EditText
-                android:id="@+id/detailSex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text=" "
-                android:textColor="@color/black" />
+                <EditText
+                    android:id="@+id/detailAge"
+                    android:background="@color/white"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="65"
+                    android:textColor="@color/black" />
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="키/몸무게"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/detailTall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="키(cm)"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/detailWeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="몸무게(kg)"
-                android:textColor="@color/black" />
+                <EditText
+                    android:id="@+id/detailSex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="여자"
+                    android:background="@color/white"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="지역"
-                android:textColor="@color/black" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="키/몸무게"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/navy" />
 
-            <EditText
-                android:id="@+id/detailZone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/black" />
+                <EditText
+                    android:id="@+id/detailTall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:hint="키(cm)"
+                    android:background="@color/white"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/finishInfoBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="20dp"
-                android:padding="12dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_marginRight="50dp"
-                android:backgroundTint="@color/custom_red"
-                android:text="입력 완료" />
+                <EditText
+                    android:id="@+id/detailWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="몸무게(kg)"
+                    android:background="@color/white"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black" />
 
-        </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="지역"
+                    android:textColor="@color/navy" />
+
+                <EditText
+                    android:id="@+id/detailZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/finishInfoBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:padding="12dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginRight="50dp"
+                    android:backgroundTint="@color/custom_red"
+                    android:text="입력 완료" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 

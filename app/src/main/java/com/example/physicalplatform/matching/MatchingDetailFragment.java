@@ -2,6 +2,7 @@ package com.example.physicalplatform.matching;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,7 +94,9 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
         textViewSummary.setText(matchingDetailDatasets.getSummary());
         textViewPeriod.setText(matchingDetailDatasets.getPeriod());
         textViewRating.setText(matchingDetailDatasets.getRating().toString());
+        textViewIntroductionContents.setMovementMethod(new ScrollingMovementMethod());
         textViewIntroductionContents.setText(matchingDetailDatasets.getIntroductionContents());
+        textViewCurriculumContents.setMovementMethod(new ScrollingMovementMethod());
         textViewCurriculumContents.setText(matchingDetailDatasets.getCurriculumContents());
         textViewClassPlanSummary.setText(matchingDetailDatasets.getClassPlanSummary());
 

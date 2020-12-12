@@ -27,7 +27,7 @@ public class HealthInfoMainFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
 
-    private Button healthInfoBackBtn;
+    private TextView healthInfoBackBtn;
     private TextView healthInfoItemTitle;
     private TextView healthInfoItemContents;
     private Button healthInfoFrontBtn;
@@ -51,7 +51,7 @@ public class HealthInfoMainFragment extends Fragment {
         }
 
         // set backBtn
-        healthInfoBackBtn = (Button) viewGroup.findViewById(R.id.healthInfoBackBtn);
+        healthInfoBackBtn = viewGroup.findViewById(R.id.healthInfoBackBtn);
         healthInfoBackBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

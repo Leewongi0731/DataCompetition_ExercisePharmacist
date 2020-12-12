@@ -49,6 +49,7 @@
             android:paddingBottom="16dp">
 
             <LinearLayout
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|start"
@@ -264,7 +265,8 @@
                         android:id="@+id/textViewIntroductionContents"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:minLines="2"
+                        android:layout_marginBottom="10dp"
+                        android:scrollbars="vertical"
                         android:text="헬스를 배우고 싶은신 분 환영"
                         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -318,6 +320,7 @@
 
                 <TextView
                     android:id="@+id/textViewCurriculumContents"
+                    android:scrollbars="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1주차\n2주차\n3주차\n4주차" />

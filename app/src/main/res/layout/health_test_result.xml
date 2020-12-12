@@ -3,123 +3,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
-    
+    android:background="@color/pale_gray">
+
+    <TextView
+        android:id="@+id/textViewMedal"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="금상"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"/>
 
     <ImageView
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="150dp"
         android:src="@drawable/ic_medal"
         android:background="@drawable/ic_medal_background"
         />
 
-    <TextView
-        android:id="@+id/healthTestUserName"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="강순자"
-        android:textSize="40sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/healthTestUserPositionAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="서울 79세"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:layout_marginTop="20dp"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_check"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_play_video"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_calendar"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:layout_marginTop="20dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="신체능력"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="운동처방"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="인기강의"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
-        <Button
-            android:id="@+id/healthTestMainBtn"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
-            android:padding="15dp"
-            android:text="메인으로"
-            android:backgroundTint="@color/custom_red"
-            />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/healthTestUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="강순자"
+                android:textSize="40sp"
+                android:textColor="@color/navy"
+                android:gravity="center"
+                />
 
+            <TextView
+                android:id="@+id/healthTestUserPositionAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="서울 79세"
+                android:textSize="20sp"
+                android:textColor="@color/navy"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                />
 
+            <Button
+                android:id="@+id/healthTestDetailTestBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:padding="15dp"
+                android:text="정밀측정 신청하기"
+                android:backgroundTint="@color/custom_red"
+                />
+
+            <Button
+                android:id="@+id/healthTestMainBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:padding="15dp"
+                android:text="메인으로"
+                android:backgroundTint="@color/custom_red"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
