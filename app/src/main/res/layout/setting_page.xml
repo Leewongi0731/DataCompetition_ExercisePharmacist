@@ -22,7 +22,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/png_exercise_example"
+            android:src="@drawable/profile"
             android:layout_marginTop="15dp"/>
 
         <TextView

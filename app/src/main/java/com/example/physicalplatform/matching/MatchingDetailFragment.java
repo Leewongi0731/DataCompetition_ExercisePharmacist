@@ -35,6 +35,7 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
     private ViewGroup viewGroup;
     private Context context;
     private ImageView imageViewBackBtn;
+    private ImageView imageViewDetailBackground;
 
     private TextView textViewTitle;
     private TextView textViewTrainer;
@@ -89,6 +90,8 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
 
         initLayout();
 
+        imageViewDetailBackground.setImageResource(matchingListDataset.getBackgroundSrc());
+
         textViewTitle.setText(matchingDetailDatasets.getListTitle());
         textViewTrainer.setText(matchingDetailDatasets.getTrainer());
         textViewSummary.setText(matchingDetailDatasets.getSummary());
@@ -117,6 +120,7 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
         initDataset();
 
         imageViewBackBtn = viewGroup.findViewById(R.id.imageViewBackBtn);
+        imageViewDetailBackground = viewGroup.findViewById(R.id.imageViewDetailBackground);
 
         textViewTitle = viewGroup.findViewById(R.id.textViewTitle);
         textViewTrainer = viewGroup.findViewById(R.id.textViewTrainer);
@@ -173,13 +177,13 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
 
         // Detail Page Reviews
         classReviewListDatasets = new ArrayList<>();
-        classReviewListDatasets.add(new MatchingReviewListDataset("","배수지","정말 좋은 수업해주셔서 감사합니다.",4.6,"2020.12.04"));
-        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.0,"2020.12.03"));
-        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
-        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
-        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
-        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
-        classReviewListDatasets.add(new MatchingReviewListDataset("","이지은","강사님이 정말 친절해요.",4.6,"2020.12.03"));
+        classReviewListDatasets.add(new MatchingReviewListDataset(R.drawable.profile_1,"배영자","정말 좋은 수업해주셔서 감사합니다.",4.6,"2020.12.04"));
+        classReviewListDatasets.add(new MatchingReviewListDataset(R.drawable.profile_2,"김순자","강사님이 정말 친절해요.",4.0,"2020.12.03"));
+        classReviewListDatasets.add(new MatchingReviewListDataset(R.drawable.profile_3,"이영희","친절한 강사님이였어요.",4.2,"2020.12.02"));
+        classReviewListDatasets.add(new MatchingReviewListDataset(R.drawable.profile_4,"이영철","다음에 또 수강할 생각이에요.",3.9,"2020.11.28"));
+        classReviewListDatasets.add(new MatchingReviewListDataset(R.drawable.profile_5,"김성수","수업내용이 알찹니다.",3.8,"2020.11.20"));
+        classReviewListDatasets.add(new MatchingReviewListDataset(R.drawable.profile_6,"최미경","커리큘럼이 저랑 딱 맞아요.",4.7,"2020.10.15"));
+        classReviewListDatasets.add(new MatchingReviewListDataset(R.drawable.profile_7,"최영수","연관 강좌도 듣고 싶어요.",4.8,"2020.10.03"));
     }
 
     @Override

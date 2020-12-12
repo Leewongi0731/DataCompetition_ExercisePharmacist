@@ -1,6 +1,7 @@
 package com.example.physicalplatform.data;
 
 public class MatchingListDataset {
+    private Integer backgroundSrc;
     private boolean isRegistered;           // 신청한 강의 여부
     private boolean isAlmost;               // 마감임박 여부
     private boolean isStar;                 // 인기강의 여부
@@ -9,7 +10,8 @@ public class MatchingListDataset {
     private String period;                  // 강의 주기
     private String classTime;               // 강의 시간
 
-    public MatchingListDataset(boolean isRegistered, boolean isAlmost, boolean isStar, String listTitle, String location, String period, String classTime) {
+    public MatchingListDataset(Integer backgroundSrc, boolean isRegistered, boolean isAlmost, boolean isStar, String listTitle, String location, String period, String classTime) {
+        this.backgroundSrc = backgroundSrc;
         this.isRegistered = isRegistered;
         this.isAlmost = isAlmost;
         this.isStar = isStar;
@@ -17,6 +19,10 @@ public class MatchingListDataset {
         this.location = location;
         this.period = period;
         this.classTime = classTime;
+    }
+
+    public Integer getBackgroundSrc() {
+        return backgroundSrc;
     }
 
     public boolean isRegistered() {

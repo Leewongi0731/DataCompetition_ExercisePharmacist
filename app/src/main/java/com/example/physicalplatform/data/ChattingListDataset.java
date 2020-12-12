@@ -1,21 +1,21 @@
 package com.example.physicalplatform.data;
 
 public class ChattingListDataset {
-    private String profileSrc;
+    private Integer profileSrc;
     private String opponentName;
     private String recentTalk;
     private Integer beforeTime;
     private Integer numOfChat;
 
-    public ChattingListDataset(String opponentName, String recentTalk, Integer beforeTime, Integer numOfChat) {
-        //this.profileSrc = profileSrc;
+    public ChattingListDataset(Integer profileSrc, String opponentName, String recentTalk, Integer beforeTime, Integer numOfChat) {
+        this.profileSrc = profileSrc;
         this.opponentName = opponentName;
         this.recentTalk = recentTalk;
         this.beforeTime = beforeTime;
         this.numOfChat = numOfChat;
     }
 
-    public String getProfileSrc() {
+    public Integer getProfileSrc() {
         return profileSrc;
     }
 
