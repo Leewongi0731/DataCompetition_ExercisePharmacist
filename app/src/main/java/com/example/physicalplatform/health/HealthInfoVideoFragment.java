@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.physicalplatform.DataBase;
 import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 import com.example.physicalplatform.data.HealthCardDataset;
@@ -33,6 +35,7 @@ public class HealthInfoVideoFragment extends Fragment {
 
     private Button healthInfoVideoBackBtn;
     private Button goMactchingPageBtn;
+    private ImageView healthInfoVideoImage;
 
     private ArrayList<HealthVideoDataset> healthVideoDatasets;
     private RecyclerView.LayoutManager healthLayoutManager;
@@ -73,22 +76,23 @@ public class HealthInfoVideoFragment extends Fragment {
             public void onClick(View v) {
                 fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 bottomNavigationView.setSelectedItemId(R.id.nav_matching);
-//                activity = (AppCompatActivity)v.getContext();
-//                transaction = activity.getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.frame_container, new MatchingFragment());
-//                transaction.addToBackStack(null);
-//                transaction.commit();
             }
         });
 
 
+        // set BackImage
+        healthInfoVideoImage = viewGroup.findViewById(R.id.healthInfoVideoImage);
+        healthInfoVideoImage.setImageResource( (int)DataBase.HEALTH_DB.get( exerciseName ).getImagePath() );
+
+
+
         // draw mvList
-        String[] mvNameList = MainPageActivity.HEALTH_DB.get( exerciseName ).getVideoNameList();
+        String[] mvNameList = DataBase.HEALTH_DB.get( exerciseName ).getVideoNameList();
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         healthVideoDatasets = new ArrayList<>();
         for(int i = 0 ; i < mvNameList.length ; i++ ){
-            healthVideoDatasets.add( MainPageActivity.HEALTH_VIDEO_DB.get(  mvNameList[i] ) );
+            healthVideoDatasets.add( DataBase.HEALTH_VIDEO_DB.get(  mvNameList[i] ) );
         }
 
         recyclerView = viewGroup.findViewById(R.id.healthInfoVideoRecyclerView);

@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.physicalplatform.DataBase;
 import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 import com.example.physicalplatform.data.HealthCardDataset;
@@ -37,6 +38,10 @@ public class HealthFragment extends Fragment {
     private LinearLayout healthTestLinearLayout;
     private AppCompatActivity activity;
     private FragmentTransaction transaction;
+
+    private String userKey = "60대/정상/F/은상/";
+    ArrayList<String> mvList;
+    ArrayList<String> resultMVList;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,11 +70,23 @@ public class HealthFragment extends Fragment {
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
+
+        mvList = DataBase.HEALTH_RECOMMEND_DB.get( userKey + "준비운동" );
+        resultMVList = getVideoList( mvList );
+        DataBase.HEALTH_DB.get( "준비운동" ).setVideoNameList( resultMVList );
+
+        mvList = DataBase.HEALTH_RECOMMEND_DB.get( userKey + "본운동" );
+        resultMVList = getVideoList( mvList );
+        DataBase.HEALTH_DB.get( "본운동" ).setVideoNameList( resultMVList );
+
+        mvList = DataBase.HEALTH_RECOMMEND_DB.get( userKey + "마무리운동" );
+        resultMVList = getVideoList( mvList );
+        DataBase.HEALTH_DB.get( "마무리운동" ).setVideoNameList( resultMVList );
+
         bestHealthCardDataset = new ArrayList<>();
-        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "어깨 스트레칭" ) );
-        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "발바닥 치기" ) );
-        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "몸통 비틀기" ) );
-        bestHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "종아리 스트레칭" ) );
+        bestHealthCardDataset.add( DataBase.HEALTH_DB.get( "준비운동" ) );
+        bestHealthCardDataset.add( DataBase.HEALTH_DB.get( "본운동" ) );
+        bestHealthCardDataset.add( DataBase.HEALTH_DB.get( "마무리운동" ) );
 
         bestRecyclerView = viewGroup.findViewById(R.id.bestRecyclerView);
         bestHealthLayoutManager = new LinearLayoutManager(context);
@@ -79,12 +96,16 @@ public class HealthFragment extends Fragment {
         bestRecyclerView.setAdapter(bestHealthAdapter);
 
 
+        /////////////////////////////////
+
         layoutManager
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         trendHealthCardDataset = new ArrayList<>();
-        trendHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "몸통 비틀기" ) );
-        trendHealthCardDataset.add( MainPageActivity.HEALTH_DB.get( "종아리 스트레칭" ) );
+        trendHealthCardDataset.add( DataBase.HEALTH_DB.get( "근력/근지구력" ) );
+        trendHealthCardDataset.add( DataBase.HEALTH_DB.get( "심폐지구력" ) );
+        trendHealthCardDataset.add( DataBase.HEALTH_DB.get( "유연성" ) );
+        trendHealthCardDataset.add( DataBase.HEALTH_DB.get( "평형성" ) );
         trendRecyclerView = viewGroup.findViewById(R.id.trendRecyclerView);
 
         trendHealthLayoutManager = new LinearLayoutManager(context);
@@ -92,6 +113,18 @@ public class HealthFragment extends Fragment {
         trendRecyclerView.setLayoutManager(layoutManager);  // 세로로 나오게 설정
         trendHealthAdapter = new HealthFragmentRecyclerViewAdapter(context, trendHealthCardDataset);
         trendRecyclerView.setAdapter(trendHealthAdapter);
+    }
+
+
+    private ArrayList<String> getVideoList( ArrayList<String> mvList){
+        ArrayList<String> resultMVList = new ArrayList<String>();
+        //  없는 영상제거...
+        for ( int i = 0 ; i < mvList.size() ; i++) {
+            if (DataBase.HEALTH_VIDEO_DB.containsKey(mvList.get(i)))
+                resultMVList.add( mvList.get(i) );
+        }
+
+        return resultMVList;
     }
 
 }

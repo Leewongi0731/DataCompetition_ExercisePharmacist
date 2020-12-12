@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.physicalplatform.DataBase;
 import com.example.physicalplatform.MainPageActivity;
 import com.example.physicalplatform.R;
 
@@ -29,6 +31,7 @@ public class HealthInfoMainFragment extends Fragment {
     private TextView healthInfoItemTitle;
     private TextView healthInfoItemContents;
     private Button healthInfoFrontBtn;
+    private ImageView healthInfoMainImage;
 
     private AppCompatActivity activity;
     private FragmentTransaction transaction;
@@ -57,14 +60,19 @@ public class HealthInfoMainFragment extends Fragment {
             }
         });
 
+        healthInfoMainImage = viewGroup.findViewById(R.id.healthInfoMainImage);
+        healthInfoMainImage.setImageResource( (int)DataBase.HEALTH_DB.get( exerciseName ).getImagePath() );
+
+
         // set health Title
         healthInfoItemTitle = (TextView) viewGroup.findViewById(R.id.healthInfoItemTitle);
         healthInfoItemTitle.setText( exerciseName );
+        // healthInfoItemTitle.setText( exerciseName + " : "  +  DataBase.HEALTH_DB.get( exerciseName ).getVideoNameList()[0]   );
 
 
         // set health contents
         healthInfoItemContents = (TextView) viewGroup.findViewById(R.id.healthInfoItemContents);
-        healthInfoItemContents.setText(  MainPageActivity.HEALTH_DB.get( exerciseName ).getInfo() );
+        healthInfoItemContents.setText(  DataBase.HEALTH_DB.get( exerciseName ).getInfo() );
 
 
         // set video btn

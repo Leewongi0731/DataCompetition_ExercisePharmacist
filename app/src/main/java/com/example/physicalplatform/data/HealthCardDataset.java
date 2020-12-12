@@ -1,5 +1,7 @@
 package com.example.physicalplatform.data;
 
+import java.util.ArrayList;
+
 public class HealthCardDataset {
     private String name;
     private String info;
@@ -27,5 +29,13 @@ public class HealthCardDataset {
 
     public String[] getVideoNameList() {
         return videoNameList;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public void setVideoNameList(ArrayList<String> videoNameList) {
+        this.videoNameList = videoNameList.toArray(new String[0]);;
     }
 }
