@@ -21,7 +21,7 @@
         android:layout_marginBottom="25dp"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@drawable/ic_medal"
+        android:src="@drawable/ic_medal_1"
         android:background="@drawable/ic_medal_background"
         />
 
@@ -64,7 +64,7 @@
                 android:layout_marginRight="30dp"
                 android:padding="15dp"
                 android:text="정밀측정 신청하기"
-                android:backgroundTint="@color/custom_red"
+                android:backgroundTint="@color/custom_orange"
                 />
 
             <Button

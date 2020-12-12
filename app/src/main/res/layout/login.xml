@@ -82,12 +82,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="50dp"
                 android:hint="비밀번호"
-                app:layout_constraintTop_toBottomOf="@+id/loginIdLayout">
+                app:layout_constraintTop_toBottomOf="@+id/loginIdLayout"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/loginPwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     android:background="#D3D3D3	" />
             </com.google.android.material.textfield.TextInputLayout>
 

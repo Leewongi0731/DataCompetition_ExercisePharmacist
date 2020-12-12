@@ -319,9 +319,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ff4d2c" />
-                            <entry key="outputName" value="ic_play_video" />
-                            <entry key="sourceFile" value="D:\drive-download-20201208T111747Z-001\검색 아이콘.svg" />
+                            <entry key="outputName" value="ic_medal_4" />
+                            <entry key="sourceFile" value="G:\공유 드라이브\체육종합 데이터 활용 경진대회\아이콘\메달\ic_medal_4.svg" />
                           </map>
                         </option>
                       </PersistentState>

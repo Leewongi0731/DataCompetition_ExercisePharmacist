@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ public class SettingFragment extends Fragment {
     private TextView settingLoginUserName;
     private TextView textViewSettingNotice;
     private TextView textViewSettingQuestions;
+    private ImageView settingLoginUserScore;
 
     private AppCompatActivity activity;
     private FragmentTransaction transaction;
@@ -37,6 +39,18 @@ public class SettingFragment extends Fragment {
         settingLoginUserName = viewGroup.findViewById(R.id.settingLoginUserName);
         settingLoginUserName.setText( DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getName() );
 
+        // set medal
+        settingLoginUserScore = viewGroup.findViewById(R.id.settingLoginUserScore);
+        String score = DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getScore();
+        if( score == "금상" ) {
+            settingLoginUserScore.setImageResource( R.drawable.ic_medal_1 );
+        }else if(score == "은상"){
+            settingLoginUserScore.setImageResource( R.drawable.ic_medal_2 );
+        }else if(score == "동상"){
+            settingLoginUserScore.setImageResource( R.drawable.ic_medal_3 );
+        }else{
+            settingLoginUserScore.setImageResource( R.drawable.ic_medal_4 );
+        }
 
         textViewSettingNotice = viewGroup.findViewById(R.id.textViewSettingNotice);
         textViewSettingNotice.setOnClickListener(new View.OnClickListener() {
