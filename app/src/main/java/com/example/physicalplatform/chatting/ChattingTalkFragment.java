@@ -1,7 +1,10 @@
 package com.example.physicalplatform.chatting;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,8 @@ import java.util.ArrayList;
 public class ChattingTalkFragment extends Fragment implements View.OnClickListener {
     private ViewGroup viewGroup;
     private Context context;
+
+    private String sendText;
 
     private ImageView imageViewTalkBackBtn;
 
@@ -52,6 +57,9 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
         context = container.getContext();
 
         initLayout();
+
+        String chatBotIntro = "안녕하세요. 헬스트레이닝1 강좌 이강사입니다.\n강좌 커리큘럼은 '커리큘럼'\n강좌 수업일정은 '수업일정'\n강사 정보는 '강사'\n회원님의 체력정보는 '체력정보'\n회원님의 테스트결과는 '테스트결과'\n를 입력하시면 정보를 얻을 수 있습니다.";
+        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.trainer_profile_1, false,"이강사",chatBotIntro,"2020-12-11 16:22:00"));
 
         imageViewTalkBackBtn.setOnClickListener(this);
         imageViewSendButton.setOnClickListener(this);
@@ -82,12 +90,18 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
 
     private void initDataset() {
         chattingTalkDatasets = new ArrayList<>();
-
-        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.trainer_profile_1,false,"이강사","안녕하세요","2020-12-11 16:18:00"));
-        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.profile,true,"나","안녕하세요","2020-12-11 16:19:00"));
-        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.trainer_profile_1,false,"이강사","오늘은 1주차 강의 들으셨는데 어떠셨나요?","2020-12-11 16:20:00"));
-        chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.profile,true,"나","좋았어요 리뷰 올려 드릴게요","2020-12-11 16:21:00"));
     }
+
+    Handler handler;
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            ChatBot chatBot = new ChatBot(sendText);
+            chattingTalkDatasets.add(chatBot.sendChatting());
+            chattingTalkRecyclerView.scrollToPosition(chattingTalkAdapter.getItemCount()-1);
+            chattingTalkAdapter.notifyDataSetChanged();
+        }
+    };
 
     @Override
     public void onClick(View v) {
@@ -96,10 +110,14 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
                 fragmentManager.popBackStackImmediate();
                 break;
             case R.id.imageViewSendButton:
-                String sendText = editTextSendMessage.getText().toString();
+                sendText = editTextSendMessage.getText().toString();
                 editTextSendMessage.setText("");
                 chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.profile, true,"나",sendText,"2020-12-11 16:22:00"));
+                chattingTalkRecyclerView.scrollToPosition(chattingTalkAdapter.getItemCount()-1);
                 chattingTalkAdapter.notifyDataSetChanged();
+
+                handler = new Handler(Looper.getMainLooper());
+                handler.postDelayed(runnable,1000);
                 break;
         }
     }

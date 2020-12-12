@@ -21,11 +21,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.physicalplatform.R;
-import com.example.physicalplatform.chatting.ChattingFragment;
-import com.example.physicalplatform.chatting.ChattingFragmentRecyclerViewAdapter;
-import com.example.physicalplatform.data.MatchingReviewListDataset;
 import com.example.physicalplatform.data.MatchingDetailDataset;
 import com.example.physicalplatform.data.MatchingListDataset;
+import com.example.physicalplatform.data.MatchingReviewListDataset;
 
 import java.util.ArrayList;
 
