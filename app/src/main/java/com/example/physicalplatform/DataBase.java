@@ -31,12 +31,13 @@ public class DataBase {
 // String name, String pwd, String email, String registrationNumber, String gender, String height, String weight, String score, String location
         MEMBER_DB.put( "490000-2000000", new Member("김혜자", "pwd", "email", "490000-2000000", "151.5", "44.58",  "금상", "서울"));
         MEMBER_DB.put( "530000-1000000", new Member("김춘배", "pwd", "email", "530000-1000000", "164.2", "80.8",  "은상", "서울"));
+        MEMBER_DB.put( "960731-1000000", new Member("이원기", "pwd", "email", "960731-1000000", "175", "75",  "참가상", "경기도"));
     }
 
     public void initializHealthDB() {
         HEALTH_DB = new HashMap<String, HealthCardDataset>();
 
-        String[] mvNameList = { "엉덩이 스트레칭", "대퇴사두근 스트레칭", "몸통 들어올리기", "누워서 전신 뻗기" };
+        String[] mvNameList = { "엉덩이 스트레칭", "대퇴사두근 스트레칭", "몸통 들어올리기", "누워서 전신 뻗기" }; // 임시일뿐 실제로는 해당 데이터 X
 
         HEALTH_DB.put("준비운동", new HealthCardDataset("준비운동", "준비운동은 신체활동 또는 운동에 참여하기 전 신체의 기능을 안정 상태에서 운동에 " +
                 "적합한 상태로 서서히 유도해가는 일련의 과정으로서 웜업(warm-up)이라고도 하며," +
@@ -105,6 +106,14 @@ public class DataBase {
         HEALTH_VIDEO_DB.put(  "스텝박스", new HealthVideoDataset( "스텝박스", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/171/171.mp4","9분 48초") );
         HEALTH_VIDEO_DB.put(  "복부 스트레칭", new HealthVideoDataset( "복부 스트레칭", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/296/296.mp4","9분 48초") );
         HEALTH_VIDEO_DB.put(  "동적 스트레칭 루틴프로그램", new HealthVideoDataset( "동적 스트레칭 루틴프로그램", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/598/598.mp4","9분 48초") );
+        HEALTH_VIDEO_DB.put(  "엎드려 양팔 및 다리 들어올리기", new HealthVideoDataset( "엎드려 양팔 및 다리 들어올리기", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/235/235.mp4","1분 43초") );
+        HEALTH_VIDEO_DB.put(  "고정식 트레드밀에서 걷기", new HealthVideoDataset( "고정식 트레드밀에서 걷기", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/168/168.mp4","1분 30초") );
+        HEALTH_VIDEO_DB.put(  "등/어깨 뒤쪽 스트레칭", new HealthVideoDataset( "등/어깨 뒤쪽 스트레칭", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/243/243.mp4","1분 55초") );
+        HEALTH_VIDEO_DB.put(  "넙다리 안쪽 스트레칭", new HealthVideoDataset( "넙다리 안쪽 스트레칭", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/249/249.mp4","1분 56초") );
+        HEALTH_VIDEO_DB.put(  "넙다리 앞쪽 스트레칭", new HealthVideoDataset( "넙다리 앞쪽 스트레칭", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/248/248.mp4","1분 55초") );
+        HEALTH_VIDEO_DB.put(  "깍지 끼고 상체 숙이기", new HealthVideoDataset( "깍지 끼고 상체 숙이기", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/241/241.mp4","1분 56초") );
+
+
 
         HEALTH_VIDEO_DB.put(  "의자 이용 근력운동 루틴 프로그램", new HealthVideoDataset( "의자 이용 근력운동 루틴 프로그램", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/404/404.mp4","1분 23초") );
         HEALTH_VIDEO_DB.put(  "치매를 위한 근력운동", new HealthVideoDataset( "치매를 위한 근력운동", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/390/390.mp4","1분 42초") );
@@ -139,11 +148,7 @@ public class DataBase {
             HEALTH_RECOMMEND_DB.get(  recoommedList.get(i)[0] ).add( recoommedList.get(i)[2] );
         }
 
-        Log.d(  "M",  HEALTH_RECOMMEND_DB.get(  "50대/정상/F/동상/본운동" ).get(0)  );
-        Log.d(  "M",  HEALTH_RECOMMEND_DB.get(  "50대/정상/F/동상/본운동" ).get(1)  );
-        Log.d(  "M",  HEALTH_RECOMMEND_DB.get(  "50대/정상/F/동상/본운동" ).get(2)  );
-        Log.d(  "M",  HEALTH_RECOMMEND_DB.get(  "50대/정상/F/동상/본운동" ).get(3)  );
-        Log.d(  "M",  HEALTH_RECOMMEND_DB.get(  "50대/정상/F/동상/본운동" ).get(4)  );
+        //   "50대/정상/F/동상/본운동"
     }
 
 }

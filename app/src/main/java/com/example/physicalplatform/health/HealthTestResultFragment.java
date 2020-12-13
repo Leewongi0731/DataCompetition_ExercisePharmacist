@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,8 @@ public class HealthTestResultFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
 
+    private TextView textViewMedal;
+    private ImageView healthTestMedalImage;
     private String test1;
     private String test2;
     private String test3;
@@ -48,7 +51,28 @@ public class HealthTestResultFragment extends Fragment {
             test3 = bundle.getString("test3");
         }
 
+        updateUserScore();
+
         getRecommendExercise();
+
+        // set medal
+        textViewMedal = viewGroup.findViewById(R.id.textViewMedal);
+        healthTestMedalImage = viewGroup.findViewById(R.id.healthTestMedalImage);
+        String score = DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getScore();
+        if( score == "금상" ) {
+            textViewMedal.setText( "금상" );
+            healthTestMedalImage.setImageResource( R.drawable.ic_medal_1 );
+        }else if(score == "은상"){
+            textViewMedal.setText("은상");
+            healthTestMedalImage.setImageResource( R.drawable.ic_medal_2 );
+        }else if(score == "동상"){
+            textViewMedal.setText("동상");
+            healthTestMedalImage.setImageResource( R.drawable.ic_medal_3 );
+        }else{
+            textViewMedal.setText("참가상");
+            healthTestMedalImage.setImageResource( R.drawable.ic_medal_4 );
+        }
+
 
         // set Name
         healthTestUserName = viewGroup.findViewById(R.id.healthTestUserName);
@@ -88,6 +112,24 @@ public class HealthTestResultFragment extends Fragment {
         });
 
         return viewGroup;
+    }
+
+    private void updateUserScore(){
+        try {
+            int t1 = Integer.parseInt(test1);
+            int t2 = Integer.parseInt(test2);
+            int t3 = Integer.parseInt(test3);
+
+            if (t1 >= 21 && t2 >= 140 && t3 >= 18.4) {
+                DataBase.MEMBER_DB.get(MainPageActivity.LOGIN_USER_ID).setScore("금상");
+            } else if (t1 >= 17 && t2 >= 106 && t3 >= 16.1) {
+                DataBase.MEMBER_DB.get(MainPageActivity.LOGIN_USER_ID).setScore("은상");
+            } else {
+                DataBase.MEMBER_DB.get(MainPageActivity.LOGIN_USER_ID).setScore("동상");
+            }
+        }catch (Exception e){
+            DataBase.MEMBER_DB.get(MainPageActivity.LOGIN_USER_ID).setScore("은상");
+        }
     }
 
 

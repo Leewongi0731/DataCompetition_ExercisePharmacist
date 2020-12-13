@@ -54,6 +54,7 @@ public class DetailInformationFragment extends Fragment {
 
         detailAge.setText(age);
         detailSex.setText(sex);
+        detailZone.setText( "경기도 부천시" );
         detailAge.setFocusable(false);
         detailAge.setClickable(false);
         detailSex.setFocusable(false);
@@ -66,7 +67,7 @@ public class DetailInformationFragment extends Fragment {
                 Intent intent = new Intent(context, MainPageActivity.class);
 
                 String userID = "새로운 로그인 채크";
-                intent.putExtra( "userID", userID );
+                intent.putExtra( "userID", "960731-1000000" );
                 startActivity(intent);
                 getActivity().finish();
             }

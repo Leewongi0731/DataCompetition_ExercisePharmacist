@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainPageActivity extends AppCompatActivity {
-    public static final String LOGIN_USER_ID = "490000-2000000";
+    public static String LOGIN_USER_ID = "490000-2000000";
 
 
     String userId;
@@ -45,7 +45,7 @@ public class MainPageActivity extends AppCompatActivity {
         try{
             Intent intent = getIntent();
             userId = intent.getExtras().getString("userID");
-            Toast.makeText(this.getApplicationContext(), userId, Toast.LENGTH_SHORT).show();
+            LOGIN_USER_ID = userId;
         }catch (Exception e){
             Toast.makeText(this.getApplicationContext(), "홈페이지서 시작", Toast.LENGTH_SHORT).show();
         }
@@ -53,6 +53,7 @@ public class MainPageActivity extends AppCompatActivity {
 
         initializeDataBase(); // static 디비 초기화
         initLayout();
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

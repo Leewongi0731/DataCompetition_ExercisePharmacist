@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,7 +54,10 @@ public class HealthFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_page, container, false);
         context = container.getContext();
 
+
+
         userKey = DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getKey();
+        Toast.makeText(context, userKey, Toast.LENGTH_LONG).show();
 
         healthMainPageNameSet = viewGroup.findViewById(R.id.healthMainPageNameSet);
         healthMainPageNameSet.setText(  DataBase.MEMBER_DB.get(  MainPageActivity.LOGIN_USER_ID ).getName() + "님한테 맞는 운동처방" );

@@ -97,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="회원들이 많이 보는 요즘 운동 트렌드"
+                    android:text="종목별 추천 운동"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="18sp"

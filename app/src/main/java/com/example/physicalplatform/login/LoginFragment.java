@@ -75,7 +75,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
                 if( isMember(id, pwd) ){
                     Intent intent = new Intent(context, MainPageActivity.class);
-                    intent.putExtra( "userID", "기존 유저 로그인 채크" );
+                    intent.putExtra( "userID", "490000-2000000" );
                     startActivity(intent);
                     getActivity().finish();
                 }else{

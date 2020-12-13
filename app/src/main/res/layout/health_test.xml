@@ -70,6 +70,7 @@
                 android:paddingBottom="10dp"
                 android:background="@color/white"
                 android:hint="ex) 50"
+                android:inputType="phone"
                 android:gravity="start"
                 />
 
@@ -117,6 +118,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="ex) 30"
                 android:gravity="start"
+                android:inputType="phone"
                 />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -162,6 +164,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="ex) 10"
                 android:gravity="start"
+                android:inputType="phone"
                 />
 
             <RelativeLayout
