@@ -30,6 +30,7 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
     private Context context;
 
     private String sendText;
+    private Integer chatIdx = 0; // 채팅 임시 변수
 
     private ImageView imageViewTalkBackBtn;
 
@@ -58,7 +59,7 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
 
         initLayout();
 
-        String chatBotIntro = "안녕하세요. 헬스트레이닝1 강좌 이강사입니다.\n강좌 커리큘럼은 '커리큘럼'\n강좌 수업일정은 '수업일정'\n강사 정보는 '강사'\n회원님의 체력정보는 '체력정보'\n회원님의 테스트결과는 '테스트결과'\n를 입력하시면 정보를 얻을 수 있습니다.";
+        String chatBotIntro = "안녕하세요.\n근력/지구력을 위한 헬스트레이닝 강좌입니다.";
         chattingTalkDatasets.add(new ChattingTalkDataset(R.drawable.trainer_profile_1, false,"이강사",chatBotIntro,"2020-12-11 16:22:00"));
 
         imageViewTalkBackBtn.setOnClickListener(this);
@@ -116,8 +117,9 @@ public class ChattingTalkFragment extends Fragment implements View.OnClickListen
                 chattingTalkRecyclerView.scrollToPosition(chattingTalkAdapter.getItemCount()-1);
                 chattingTalkAdapter.notifyDataSetChanged();
 
+                Integer delays[] = {6500,5500,3500,3000};
                 handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(runnable,1000);
+                handler.postDelayed(runnable,delays[chatIdx++]);
                 break;
         }
     }
