@@ -97,12 +97,12 @@ public class MatchingFragment extends Fragment implements View.OnClickListener, 
         matchingListDatasets = new ArrayList<>();
         matchingListDatasetsFiltered = new ArrayList<>();
 
-        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_1, true,true,true,"헬스트레이닝1","송파구","주1회 (수)","09:00"));
-        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_2,true,false,true,"헬스트레이닝2","강남구","주2회","11:00"));
-        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_3,false,true,false,"헬스트레이닝3","중구","주3회","13:00"));
-        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_4,true,false,false,"헬스트레이닝4","강서구","주2회","09:00"));
-        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_5,false,false,false,"헬스트레이닝5","광진구","주1회 (목)","14:00"));
-        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_6,true,false,true,"헬스트레이닝6","송파구","주3회","15:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_1, true,true,true,"근력/지구력을 위한 헬스트레이닝","송파구","주1회 (수)","09:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_2,true,false,true,"심폐지구력 향상을 위한 강좌","강남구","주2회","11:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_3,false,true,false,"유연성 강화를 위한 트레이닝","중구","주3회","13:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_4,true,false,false,"완벽한 균형 감각을 위한 강좌","강서구","주2회","09:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_5,false,false,false,"관절염을 위한 심폐지구력 강화운동","광진구","주1회 (목)","14:00"));
+        matchingListDatasets.add(new MatchingListDataset(R.drawable.trainer_profile_6,true,false,true,"요통 방지를 위한 근력운동","송파구","주3회","15:00"));
 
         setNumOfTextViews();
 

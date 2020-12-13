@@ -168,10 +168,10 @@ public class MatchingDetailFragment extends Fragment implements View.OnClickList
         String listTitle = matchingListDataset.getListTitle();
         String period = matchingListDataset.getPeriod() + " " + matchingListDataset.getClassTime();
         String introductionContents = "헬스를 전문적으로 배우는 것이 아닌 근력을 탄탄하고 키우고 싶은 노인분들을 대상으로 운영하고자 합니다.\n강의 수강신청 하실 때 이 부분을 유념해주시고 질문사항이 있으면 아래 강좌에 대해 질문하기 버튼을 클릭하시면 됩니다.";
-        String curriculumContents = "1주차 - OT\n2주차 - 헬스트레이닝1\n3주차 - 헬스트레이닝2\n4주차 - 헬스트레이닝3\n5주차 - 헬스트레이닝4\n6주차 - 헬스트레이닝5\n7주차 - 혼자하는 헬스 트레이닝\n8주차 - 마무리";
-        String classPlanSummary = "매주 수요일 7시에서 8시 사이에 진행합니다.";
+        String curriculumContents = "1주차 - 강좌 오리엔테이션\n2주차 - 의자 이용 근력운동 루틴 프로그램\n3주차 - 치매를 위한 근력운동\n4주차 - 우울증을 위한 근력운동\n5주차 - 관절염을 위한 근력운동\n6주차 - 요통을 위한 근력운동\n7주차 - 혼자하는 헬스 트레이닝 루틴\n8주차 - 마무리 강좌";
+        String classPlanSummary = "매주 수요일 9시부터 수업이 진행됩니다.";
 
-        matchingDetailDatasets = new MatchingDetailDataset(listTitle,"이강사","간단히 할 수 있는 헬스트레이닝",period,4.6,introductionContents,curriculumContents,classPlanSummary);
+        matchingDetailDatasets = new MatchingDetailDataset(listTitle,"이강사","생활 근력을 키우는 헬스트레이닝",period,4.6,introductionContents,curriculumContents,classPlanSummary);
 
         // Detail Page Reviews
         classReviewListDatasets = new ArrayList<>();

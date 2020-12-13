@@ -61,12 +61,12 @@ public class ChattingFragment extends Fragment {
         chattingListDatasets = new ArrayList<>();
         chattingListDatasetsFiltered = new ArrayList<>();
 
-        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_1,"헬스트레이닝1","안녕하세요.\n헬스트레이닝1입니다.",1,1));
-        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_2,"헬스트레이닝2","안녕하세요.\n헬스트레이닝2입니다.",5,2));
-        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_3,"헬스트레이닝3","안녕하세요.\n헬스트레이닝3입니다.",20,0));
-        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_4,"헬스트레이닝4","안녕하세요.\n헬스트레이닝4입니다.",76,0));
-        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_5,"헬스트레이닝5","안녕하세요.\n헬스트레이닝5입니다.",60,0));
-        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_6,"헬스트레이닝6","안녕하세요.\n헬스트레이닝6입니다.",15,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_1,"근력/지구력을 위한 헬스트레이닝","안녕하세요.\n근력/지구력을 위한 헬스트레이닝 강좌입니다.",1,1));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_2,"심폐지구력 향상을 위한 강좌","안녕하세요.\n심폐지구력 향상을 위한 강좌입니다.",5,1));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_3,"유연성 강화를 위한 트레이닝","안녕하세요.\n유연성 강화를 위한 트레이닝 강좌입니다.",20,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_4,"완벽한 균형 감각을 위한 강좌","안녕하세요.\n완벽한 균형 감각을 위한 강좌입니다.",76,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_5,"관절염을 위한 심폐지구력 강화운동","안녕하세요.\n관절염을 위한 심폐지구력 강화운동 강좌입니다.",60,0));
+        chattingListDatasets.add(new ChattingListDataset(R.drawable.trainer_profile_6,"요통 방지를 위한 근력운동","안녕하세요.\n요통 방지를 위한 근력운동 강좌입니다.",15,0));
 
         // 시간 순으로 정렬
         Collections.sort(chattingListDatasets, new BeforeTimeAscending());
