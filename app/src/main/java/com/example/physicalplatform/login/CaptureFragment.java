@@ -51,6 +51,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener {
     private void initLayout() {
         captureBtn = viewGroup.findViewById(R.id.captureBtn);
 
+        /*
         captureVideoView = viewGroup.findViewById(R.id.captureVideoView);
         // sample.mp4 설정
         Uri uri = Uri.parse("android.resource://" + context.getPackageName() + "/raw/card_s");
@@ -69,7 +70,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener {
                 mp.start();
             }
         });
-
+        */
         transaction = fragmentManager.beginTransaction();
     }
     
