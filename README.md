@@ -97,25 +97,41 @@
 
 ## 실제 어플리케이션 구동 화면
 
-**1. 로그인 / 홈화면**
+**1. 로그인 / 로그인하기 / 회원가입 OCR / 회원가입 / 상세정보입력 이전 / 상세정보입력**
 
-![login](https://user-images.githubusercontent.com/48685242/102718376-26e30900-432b-11eb-9766-4a58d7bcda75.png)
+![로그인](https://user-images.githubusercontent.com/36183001/102857811-72e99700-446c-11eb-8c16-c79187120fe6.png)
 
-**2. 강의리스트**
+> 로그인 화면 / 아이디, 비밀번호 입력 / 주민등록증으로 회원가입 정보 얻기 / 회원정보입력 / 상세정보입력 이전화면 / 체력진단을 위한 상세정보 입력
 
-![list](https://user-images.githubusercontent.com/48685242/102718390-395d4280-432b-11eb-8b8e-7c66e7a1f0a4.png)
+---
 
-**3. 채팅**
+**2. 메인 화면 / 운동처방 자세히보기 / 운동처방 영상리스트 / 운동처방 영상 시청 **
 
-![chatting](https://user-images.githubusercontent.com/48685242/102718397-3f532380-432b-11eb-82f4-36f24a416dc2.png)
+![메인](https://user-images.githubusercontent.com/36183001/102857812-72e99700-446c-11eb-8fc4-77015d5bb9ef.png)
 
-**4. 처방영상시청**
+> 운동 처방 추천 / 운동처방 정보 출력 / 사용자 맞춤 운동 처방 리스트 / 국민체육진흥공단에서 제공하는 영상 제공
 
-![videoShow](https://user-images.githubusercontent.com/48685242/102718410-4bd77c00-432b-11eb-9d1d-d6e744996932.png)
+---
 
-**5. 체력정보 입력**
+**3. 체력정보 입력 / 체력정보 입력 결과 / 정밀측정 신청하기**
 
-![measure](https://user-images.githubusercontent.com/48685242/102718414-51cd5d00-432b-11eb-9563-fb3e7f443893.png)
+![운동정보입력](https://user-images.githubusercontent.com/36183001/102857805-70873d00-446c-11eb-97de-74508a1a5340.png)
+
+> 체력정보 입력 화면 / 체력정보 입력에 따른 상장 제공 / 정밀측정 신청 링크
+
+**4. 매칭 메인 / 매칭 필터 / 매칭 세부화면-수업소개 / 매칭 세부화면-커리큘럼 / 매칭 세부화면-수업일정 / 매칭 세부화면-수업후기 **
+
+![매칭](https://user-images.githubusercontent.com/36183001/102857807-72510080-446c-11eb-911f-3e9c5f4f8aab.png)
+
+> 사용자가 관심 있어할만한 강의 리스트 제공 / 리스트 필터 / 강좌 수업소개 / 강좌 커리큘럼 / 강좌 수업일정 / 강좌 수업후기
+
+---
+
+**5. 채팅 메인 / 채팅 화면 / 마이페이지 / 문의사항**
+
+![채팅 및 설정](https://user-images.githubusercontent.com/36183001/102857810-72510080-446c-11eb-914b-c865390449d0.png)
+
+> 채팅 리스트 / 채팅 구동화면 / 마이페이지 구성 / 문의사항 
 
 <br/>
 
